@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 interface CvModalProps {
   isOpen: boolean;
@@ -6,46 +6,17 @@ interface CvModalProps {
 }
 
 export const CvModal: React.FC<CvModalProps> = ({ isOpen, onClose }) => {
-  const [downloading, setDownloading] = useState(false);
-
   if (!isOpen) return null;
 
   const handleDownload = () => {
-    setDownloading(true);
-    setTimeout(() => {
-      // Simulate file download by creating a virtual link or alert
-      const cvText = `ROMAIN MARGARON - CURRICULUM VITÆ ACADÉMIQUE 2025
-Étudiant-chercheur en Humanités Numériques & Valorisation du Patrimoine
-Courriel : romain.margaron@unine.ch | Téléphone : +41 78 123 45 67
-Neuchâtel / Genève, Suisse | GitHub : https://github.com/mroylem
-
-FORMATION
-- Master ès Lettres et Sciences Humaines, orientation Humanités Numériques (Université de Neuchâtel, 2023-2025)
-  Mémoire : Analyse et Traitement Numérique des Archives Hospitalières et Administratives (Fonds Bel-Air 1907-1916)
-- Baccalauréat universitaire en Histoire générale et Littérature comparée (Université de Genève, 2020-2023)
-
-EXPÉRIENCES DE RECHERCHE & PROJETS
-- Édition critique numérique XML-TEI du Fonds Bel-Air (1907-1916)
-- Chaîne HTR eScriptorium & Kraken : entraînement de modèles de segmentation et transcription (CER < 4.8%)
-- Modélisation sémantique CIDOC-CRM et bases prosopographiques relationnelles (PostgreSQL / SQLite)
-
-COMPÉTENCES TECHNIQUES
-- Balisage & Schémas : TEI P5, ODD Roma, Schematron ISO, RelaxNG, XML, XPath, XSLT
-- Paléographie & HTR : eScriptorium, Kraken, Transkribus, IIIF v3
-- Code & NLP : Python (spaCy, pandas, nltk, OpenCV), Git, CI/CD, HTML5/CSS/JS`;
-
-      const blob = new Blob([cvText], { type: 'text/plain;charset=utf-8' });
-      const url = URL.createObjectURL(blob);
-      const a = document.createElement('a');
-      a.href = url;
-      a.download = 'CV_Romain_Margaron_Humanites_Numeriques_2025.txt';
-      document.body.appendChild(a);
-      a.click();
-      document.body.removeChild(a);
-      URL.revokeObjectURL(url);
-      setDownloading(false);
-    }, 600);
+    const a = document.createElement('a');
+    a.href = '/romainmargaron.io/CV_RM_2026.pdf';
+    a.download = 'CV_Romain_Margaron_2026.pdf';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
   };
+
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-xs animate-fadeIn">
@@ -188,13 +159,10 @@ COMPÉTENCES TECHNIQUES
             </button>
             <button
               onClick={handleDownload}
-              disabled={downloading}
               className="inline-flex items-center gap-1.5 px-4 py-2 rounded bg-[#7A2021] hover:bg-[#5b070e] text-white text-xs font-semibold uppercase tracking-wider cursor-pointer shadow"
             >
-              <span className="material-symbols-outlined text-[16px]">
-                {downloading ? 'hourglass_top' : 'download'}
-              </span>
-              <span>{downloading ? 'Génération...' : 'Télécharger (.PDF / .TXT)'}</span>
+              <span className="material-symbols-outlined text-[16px]">download</span>
+              <span>Télécharger (.PDF)</span>
             </button>
           </div>
         </div>
