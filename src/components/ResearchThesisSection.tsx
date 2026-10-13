@@ -212,14 +212,11 @@ export const ResearchThesisSection: React.FC<ResearchThesisSectionProps> = ({
       {/* 4-Step Methodology Protocol */}
       <div id="methodologie" className="flex flex-col gap-6 pt-4 scroll-mt-24">
         <div className="flex flex-col gap-1">
-          <span className="text-[13px] uppercase tracking-wider text-[#7A2021] font-semibold">
-            Chaîne opératoire rigoureuse
-          </span>
           <h3 className="font-serif text-3xl sm:text-4xl text-[#5b070e] font-semibold">
-            Protocole Méthodologique en 4 Étapes
+            Méthodologie
           </h3>
           <p className="text-[16px] text-[#64748B] max-w-3xl">
-            De la conservation matérielle à l'exploitation computationnelle, conformité aux principes FAIR et aux standards TEI.
+            Les 4 étapes pour la création d'une datavisualisation.
           </p>
         </div>
 
@@ -231,18 +228,16 @@ export const ResearchThesisSection: React.FC<ResearchThesisSectionProps> = ({
           >
             <div className="flex items-center justify-between pb-3 border-b border-[#E2DACD]">
               <span className="font-mono text-sm font-bold text-[#7A2021]">PHASE 01</span>
-              <span className="material-symbols-outlined text-[#7A2021] text-[24px]">photo_camera</span>
+              <span className="material-symbols-outlined text-[#7A2021] text-[24px]">database</span>
             </div>
             <h4 className="font-serif text-xl text-[#1E232A] font-semibold mt-3">
-              Numérisation &amp; Prétraitement
+              Collecte et Acquisition des données
             </h4>
-            <p className="text-[14px] text-[#334155] mt-2 leading-relaxed">
-              Captures haute résolution (format TIFF 600 DPI non compressé), calibration colorimétrique, binarisation adaptative sous Python (OpenCV) et redressement géométrique des feuillets.
+            <p className="text-[14px] text-[#334155] mt-2 leading-relaxed flex-1">
+              Plus de 240 000 archives photographiques recensées pour constituer le corpus d'étude. Deux approches complémentaires : deux inventaires ont été réalisés aux Archives de l'État de Neuchâtel (AEN) et au Laténium, couplé à un moissonnage numérique (web scraping sous{' '}
+              <code className="font-mono bg-[#E2DACD] px-1 rounded text-[#5b070e]">rvest</code>{' '}
+              depuis Flora) pour la Bibliothèque de Neuchâtel (BPuN).
             </p>
-            <div className="mt-4 pt-3 border-t border-[#E2DACD]/60 flex items-center justify-between text-[#64748B] text-[12px]">
-              <span>IIIF Image API</span>
-              <span className="font-mono">TIFF uncompressed</span>
-            </div>
           </div>
 
           {/* Phase 02 */}
@@ -252,18 +247,16 @@ export const ResearchThesisSection: React.FC<ResearchThesisSectionProps> = ({
           >
             <div className="flex items-center justify-between pb-3 border-b border-[#E2DACD]">
               <span className="font-mono text-sm font-bold text-[#7A2021]">PHASE 02</span>
-              <span className="material-symbols-outlined text-[#7A2021] text-[24px]">neurology</span>
+              <span className="material-symbols-outlined text-[#7A2021] text-[24px]">cleaning_services</span>
             </div>
             <h4 className="font-serif text-xl text-[#1E232A] font-semibold mt-3">
-              HTR &amp; Alignement Textuel
+              Curation et Normalisation (Data Cleaning)
             </h4>
-            <p className="text-[14px] text-[#334155] mt-2 leading-relaxed">
-              Segmentation automatique des lignes et masquage polygonal via la plateforme <strong>eScriptorium</strong>. Entraînement de modèles spécialisés <strong>Kraken</strong> (CER &lt; 4.8%) et réalignement verba-ad-verbum.
+            <p className="text-[14px] text-[#334155] mt-2 leading-relaxed flex-1">
+              Nettoyage des données sous R : harmonisation des typologies de supports avec{' '}
+              <code className="font-mono bg-[#E2DACD] px-1 rounded text-[#5b070e]">stringr</code>{' '}
+              et géocodage spatial des communes historiques afin d'être en mesure d'obtenir des jeux de données propres et utilisables.
             </p>
-            <div className="mt-4 pt-3 border-t border-[#E2DACD]/60 flex items-center justify-between text-[#64748B] text-[12px]">
-              <span>Kraken engine</span>
-              <span className="font-mono">CER 4.8%</span>
-            </div>
           </div>
 
           {/* Phase 03 */}
@@ -273,18 +266,18 @@ export const ResearchThesisSection: React.FC<ResearchThesisSectionProps> = ({
           >
             <div className="flex items-center justify-between pb-3 border-b border-[#E2DACD]">
               <span className="font-mono text-sm font-bold text-[#7A2021]">PHASE 03</span>
-              <span className="material-symbols-outlined text-[#7A2021] text-[24px]">data_object</span>
+              <span className="material-symbols-outlined text-[#7A2021] text-[24px]">analytics</span>
             </div>
             <h4 className="font-serif text-xl text-[#1E232A] font-semibold mt-3">
-              Normalisation NER &amp; Indexation
+              Structuration et Modélisation statistique
             </h4>
-            <p className="text-[14px] text-[#334155] mt-2 leading-relaxed">
-              Reconnaissance automatique et manuelle des entités nommées (anthroponymes, toponymes, pathologies). Encodage balisé en TEI XML, validation Schematron stricte et réconciliation VIAF/GND.
+            <p className="text-[14px] text-[#334155] mt-2 leading-relaxed flex-1">
+              Agrégation et calcul des variables clés (volumes, dates médianes, indices de diversité matérielle, matrices spatiales par krigeage) à l'aide des packages{' '}
+              <code className="font-mono bg-[#E2DACD] px-1 rounded text-[#5b070e]">dplyr</code>,{' '}
+              <code className="font-mono bg-[#E2DACD] px-1 rounded text-[#5b070e]">tidyr</code>,{' '}
+              <code className="font-mono bg-[#E2DACD] px-1 rounded text-[#5b070e]">sf</code>{' '}et{' '}
+              <code className="font-mono bg-[#E2DACD] px-1 rounded text-[#5b070e]">gstat</code>.
             </p>
-            <div className="mt-4 pt-3 border-t border-[#E2DACD]/60 flex items-center justify-between text-[#64748B] text-[12px]">
-              <span>TEI P5 / ODD</span>
-              <span className="font-mono">Schematron ISO</span>
-            </div>
           </div>
 
           {/* Phase 04 */}
@@ -294,18 +287,19 @@ export const ResearchThesisSection: React.FC<ResearchThesisSectionProps> = ({
           >
             <div className="flex items-center justify-between pb-3 border-b border-[#E2DACD]">
               <span className="font-mono text-sm font-bold text-[#7A2021]">PHASE 04</span>
-              <span className="material-symbols-outlined text-[#7A2021] text-[24px]">share</span>
+              <span className="material-symbols-outlined text-[#7A2021] text-[24px]">bar_chart</span>
             </div>
             <h4 className="font-serif text-xl text-[#1E232A] font-semibold mt-3">
-              Analyse Quantitative &amp; Open Science
+              Conception graphique &amp; Restitution
             </h4>
-            <p className="text-[14px] text-[#334155] mt-2 leading-relaxed">
-              Exploitation textométrique, sérialisation spatio-temporelle des délibérations, dépôt institutionnel pérenne sur GitHub, Zenodo et publication web conforme aux principes FAIR.
+            <p className="text-[14px] text-[#334155] mt-2 leading-relaxed flex-1">
+              Génération des visualisations avec{' '}
+              <code className="font-mono bg-[#E2DACD] px-1 rounded text-[#5b070e]">ggplot2</code>{' '}
+              selon les principes d'excellence graphique d'Edward Tufte (data-ink ratio, minimalisme visuel). Les représentations sont conçues à la fois comme instruments d'aide à la décision interne et comme supports de médiation culturelle.
             </p>
-            <div className="mt-4 pt-3 border-t border-[#E2DACD]/60 flex items-center justify-between text-[#64748B] text-[12px]">
-              <span>FAIR Data</span>
-              <span className="font-mono">CC-BY 4.0</span>
-            </div>
+            <p className="mt-3 pt-2 border-t border-[#E2DACD]/60 text-[11px] text-[#64748B] leading-relaxed italic">
+              TUFTE, Edward R. <em>The visual display of quantitative information.</em> Cheshire, Graphics press, Second edition, 2001. ISBN 978-0-9613921-4-7
+            </p>
           </div>
         </div>
       </div>

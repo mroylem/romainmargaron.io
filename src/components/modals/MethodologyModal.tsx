@@ -6,59 +6,62 @@ interface MethodologyModalProps {
   onClose: () => void;
 }
 
-const PHASES = [
+// Each detail can be a string or a JSX element for inline code formatting
+const PHASES: {
+  phase: string;
+  title: string;
+  icon: string;
+  lead: string;
+  details: React.ReactNode[];
+}[] = [
   {
     phase: 'PHASE 01',
-    title: 'Numérisation & Prétraitement',
-    icon: 'photo_camera',
-    techTag: 'IIIF Image API • TIFF uncompressed',
-    lead: 'Captures haute résolution (format TIFF 600 DPI non compressé), calibration colorimétrique, binarisation adaptative sous Python (OpenCV) et redressement géométrique des feuillets.',
+    title: 'Collecte et Acquisition des données',
+    icon: 'database',
+    lead: "Plus de 240 000 archives photographiques recensées pour constituer le corpus d'étude. Deux approches complémentaires : inventaires réalisés aux AEN et au Laténium, couplés à un moissonnage numérique (web scraping) pour la BPuN.",
     details: [
-      'Numérisation réalisée sur scanner à plat professionnel pour préserver la reliure du registre in-folio.',
-      'Calibration colorimétrique avec mire ColorChecker pour compenser l’altération des encres ferro-galliques séculaires.',
-      'Pipeline de redressement géométrique automatique (détection des bords sous OpenCV) et correction d’inclinaison.',
-      'Exportation vers le standard IIIF Image API v3 pour affichage fluide sans perte d’information spectrale.'
-    ]
+      "Inventaire physique réalisé aux Archives de l'État de Neuchâtel (AEN) : dépouillement systématique des fonds photographiques, relevé des cotes et des métadonnées descriptives.",
+      "Inventaire au Laténium (Parc et musée d'archéologie de Neuchâtel) : recensement des diapositives et des photographies documentant les sites archéologiques cantonaux.",
+      <span key="rvest">Moissonnage numérique (web scraping) depuis le catalogue Flora de la Bibliothèque de Neuchâtel (BPuN) à l'aide du package <code className="font-mono bg-[#E2DACD] px-1 rounded text-[#5b070e]">rvest</code> sous R.</span>,
+      "Constitution de trois jeux de données distincts, couvrant au total plus de 240 000 références documentaires à exploiter.",
+    ],
   },
   {
     phase: 'PHASE 02',
-    title: 'HTR & Alignement Textuel',
-    icon: 'neurology',
-    techTag: 'Kraken engine • CER 4.8%',
-    lead: 'Segmentation automatique des lignes et masquage polygonal via la plateforme eScriptorium. Entraînement de modèles spécialisés Kraken (CER < 4.8%) et réalignement verba-ad-verbum.',
+    title: 'Curation et Normalisation (Data Cleaning)',
+    icon: 'cleaning_services',
+    lead: "Nettoyage des données sous R : harmonisation des typologies de supports avec stringr et géocodage spatial des communes historiques afin d'obtenir des jeux de données propres et utilisables.",
     details: [
-      'Importation des feuillets dans eScriptorium (développé par Inria/EPHE) pour la segmentation manuelle et assistée.',
-      'Génération de masques polygonaux pour isoler les gloses marginales et les cachets administratifs hors du flux textuel principal.',
-      'Entraînement de modèles neuronaux convolutionnels-récurrents (CRNN) sous Kraken avec validation croisée.',
-      'Post-correction assistée par dictionnaire historique français du début du XXᵉ siècle.'
-    ]
+      <span key="stringr">Harmonisation des typologies de supports photographiques (négatifs, diapositives, tirages) avec le package <code className="font-mono bg-[#E2DACD] px-1 rounded text-[#5b070e]">stringr</code> : standardisation des intitulés, correction des coquilles et unification des nomenclatures.</span>,
+      <span key="geocoder">Géocodage spatial des communes historiques neuchâteloises avec appariement aux référentiels géographiques officiels (swisstopo) via <code className="font-mono bg-[#E2DACD] px-1 rounded text-[#5b070e]">tidygeocoder</code>.</span>,
+      "Détection et suppression des doublons inter-inventaires par recoupement sur les identifiants de cote et les métadonnées descriptives.",
+      "Exportation de trois tables normalisées (AEN, BPuN, LAT) au format CSV, prêtes pour l'étape de modélisation statistique.",
+    ],
   },
   {
     phase: 'PHASE 03',
-    title: 'Normalisation NER & Indexation',
-    icon: 'data_object',
-    techTag: 'TEI P5 / ODD • Schematron ISO',
-    lead: 'Reconnaissance automatique et manuelle des entités nommées (anthroponymes, toponymes, pathologies). Encodage balisé en TEI XML, validation Schematron stricte et réconciliation VIAF/GND.',
+    title: 'Structuration et Modélisation statistique',
+    icon: 'analytics',
+    lead: "Agrégation et calcul des variables clés (volumes, dates médianes, indices de diversité matérielle, matrices spatiales par krigeage) à l'aide des packages dplyr, tidyr, sf et gstat.",
     details: [
-      'Application d’un modèle spaCy fine-tuné sur les sources archivistiques asilaires pour la détection préliminaire des entités.',
-      'Encodage sémantique systématique sous balises TEI <persName>, <orgName>, <placeName> avec rôles contextuels.',
-      'Définition d’une spécification ODD Roma propre au corpus Bel-Air (suppression des modules non nécessaires).',
-      'Écriture de règles Schematron pour vérifier la concordance des dates et la présence d’identifiants pérennes.'
-    ]
+      <span key="dplyr">Agrégation des volumes documentaires et calcul des dates médianes par fonds avec <code className="font-mono bg-[#E2DACD] px-1 rounded text-[#5b070e]">dplyr</code> et <code className="font-mono bg-[#E2DACD] px-1 rounded text-[#5b070e]">tidyr</code> : production des variables synthétiques nécessaires aux visualisations temporelles.</span>,
+      <span key="diversite">Calcul des indices de diversité matérielle (richesse typologique, entropie de Shannon) pour chaque fonds, opérationnalisés sous <code className="font-mono bg-[#E2DACD] px-1 rounded text-[#5b070e]">dplyr</code>.</span>,
+      <span key="spatial">Modélisation spatiale par krigeage des densités de sites archéologiques (LAT) : construction des matrices de variogrammes et interpolation IDW avec <code className="font-mono bg-[#E2DACD] px-1 rounded text-[#5b070e]">sf</code> et <code className="font-mono bg-[#E2DACD] px-1 rounded text-[#5b070e]">gstat</code>.</span>,
+      "Structuration hiérarchique des numéros d'inventaire du Laténium pour la production du dendrogramme et du treemap.",
+    ],
   },
   {
     phase: 'PHASE 04',
-    title: 'Analyse Quantitative & Open Science',
-    icon: 'share',
-    techTag: 'FAIR Data • CC-BY 4.0',
-    lead: 'Exploitation textométrique, sérialisation spatio-temporelle des délibérations, dépôt institutionnel pérenne sur GitHub, Zenodo et publication web conforme aux principes FAIR.',
+    title: 'Conception graphique & Restitution',
+    icon: 'bar_chart',
+    lead: "Génération des visualisations avec ggplot2 selon les principes d'excellence graphique d'Edward Tufte (data-ink ratio, minimalisme visuel). Les représentations servent à la fois l'aide à la décision interne et la médiation culturelle.",
     details: [
-      'Analyses lexicométriques et factorielles des correspondances (AFC) pour détecter les évolutions du vocabulaire asilaire.',
-      'Structuration d’une base relationnelle et graphe de connaissances CIDOC-CRM pour les trajectoires de patients.',
-      'Publication du corpus complet sous licence libre Creative Commons CC-BY 4.0 avec DOI attribué.',
-      'Garantie du respect des délais légaux de communicabilité des archives médicales et des recommandations éthiques suisses.'
-    ]
-  }
+      <span key="ggplot2">Production de l'ensemble des visualisations sous <code className="font-mono bg-[#E2DACD] px-1 rounded text-[#5b070e]">ggplot2</code> : frises chronologiques, circle packings, scatter plots, cartographies, dendrogrammes, treemaps et diagrammes en barres.</span>,
+      "Application systématique des principes d'Edward Tufte : maximisation du data-ink ratio, suppression des chartjunk, typographie sobre et lisible.",
+      "Double destination des visualisations : instruments d'aide à la décision pour les équipes de conservation, et supports de médiation culturelle pour le public des institutions.",
+      <span key="tufte" className="italic text-[#64748B]">TUFTE, Edward R. <em>The visual display of quantitative information.</em> Cheshire, Graphics press, Second edition, 2001. ISBN 978-0-9613921-4-7</span>,
+    ],
+  },
 ];
 
 export const MethodologyModal: React.FC<MethodologyModalProps> = ({
@@ -84,9 +87,9 @@ export const MethodologyModal: React.FC<MethodologyModalProps> = ({
             <span className="material-symbols-outlined text-[#7A2021] text-[24px]">architecture</span>
             <div>
               <h3 className="font-serif text-xl sm:text-2xl text-[#5b070e] font-semibold">
-                Protocole Méthodologique Détaillé
+                Méthodologie
               </h3>
-              <p className="text-xs text-[#64748B]">Chaîne de traitement numérique de bout en bout</p>
+              <p className="text-xs text-[#64748B]">Les 4 étapes pour la création d'une datavisualisation</p>
             </div>
           </div>
           <button
@@ -116,14 +119,11 @@ export const MethodologyModal: React.FC<MethodologyModalProps> = ({
 
         {/* Body Content */}
         <div className="p-6 overflow-y-auto space-y-5 text-[#1E232A]">
-          <div className="flex items-start justify-between gap-3 border-b border-[#E2DACD] pb-3">
+          <div className="flex items-start gap-3 border-b border-[#E2DACD] pb-3">
             <div>
               <span className="font-mono text-xs font-bold text-[#7A2021]">{current.phase}</span>
               <h4 className="font-serif text-2xl font-bold text-[#5b070e] mt-0.5">{current.title}</h4>
             </div>
-            <span className="text-xs font-mono px-2 py-1 rounded bg-[#C29B38]/20 text-[#4A2E12] font-semibold shrink-0">
-              {current.techTag}
-            </span>
           </div>
 
           <p className="text-sm font-medium text-[#334155] leading-relaxed bg-[#F4EFEB] p-3.5 rounded border border-[#E2DACD]">
@@ -132,7 +132,7 @@ export const MethodologyModal: React.FC<MethodologyModalProps> = ({
 
           <div className="space-y-3">
             <span className="text-xs uppercase font-bold text-[#4A2E12] tracking-wider">
-              Opérations techniques clés :
+              Opérations clés :
             </span>
             <ul className="space-y-2 text-xs sm:text-sm text-[#334155]">
               {current.details.map((detail, dIdx) => (
