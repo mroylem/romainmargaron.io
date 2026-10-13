@@ -96,7 +96,7 @@ export default function App() {
       />
 
       {/* Main Content Area */}
-      <main className="w-full pt-20 bg-[#FAF8F5] flex-1">
+      <main className="w-full pt-10 bg-[#FAF8F5] flex-1">
         {/* Section 0: Hero & Identity */}
         <HeroSection onOpenCvModal={() => setIsCvOpen(true)} />
 

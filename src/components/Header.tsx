@@ -58,8 +58,8 @@ export const Header: React.FC<HeaderProps> = ({ onOpenCvModal, onOpenContactModa
   return (
     <header
       className={`fixed top-0 w-full z-50 transition-all duration-300 ${isScrolled
-        ? 'bg-[#F4EFEB]/95 backdrop-blur-md shadow-[0_2px_12px_rgba(74,46,18,0.08)] py-3'
-        : 'bg-[#F4EFEB]/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(74,46,18,0.06)] py-4'
+        ? 'bg-[#F4EFEB]/95 border-b border-[#E2DACD] shadow-[0_2px_12px_rgba(74,46,18,0.08)] py-3'
+        : 'bg-[#F4EFEB]/90 border-b border-[#E2DACD] shadow-[0_1px_8px_rgba(74,46,18,0.06)] py-4'
         }`}
     >
       <div className="max-w-7xl mx-auto px-6 lg:px-0 flex items-center justify-between gap-4">
