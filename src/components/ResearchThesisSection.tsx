@@ -184,16 +184,14 @@ export const ResearchThesisSection: React.FC<ResearchThesisSectionProps> = ({
                 key={plate.id}
                 onClick={() => setActivePlate(plate)}
                 type="button"
-                className={`text-left p-3.5 rounded bg-[#FAF8F5] transition-all flex flex-col gap-1.5 hover:bg-[#F4EFEB] cursor-pointer ${
-                  isActive
+                className={`text-left p-3.5 rounded bg-[#FAF8F5] transition-all flex flex-col gap-1.5 hover:bg-[#F4EFEB] cursor-pointer ${isActive
                     ? 'border-2 border-[#7A2021] shadow-xs'
                     : 'border border-[#E2DACD] opacity-85 hover:opacity-100'
-                }`}
+                  }`}
               >
                 <span
-                  className={`text-[12px] font-semibold uppercase ${
-                    isActive ? 'text-[#7A2021]' : 'text-[#64748B]'
-                  }`}
+                  className={`text-[12px] font-semibold uppercase ${isActive ? 'text-[#7A2021]' : 'text-[#64748B]'
+                    }`}
                 >
                   {plate.number}. {plate.category}
                 </span>
