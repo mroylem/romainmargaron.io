@@ -1,0 +1,6 @@
+{
+  "name": "Romain Margaron — Humanités Numériques & Archives",
+  "description": "Dossier de candidature académique et édition critique numérique TEI de Romain Margaron (UNINE / UNIGE).",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
