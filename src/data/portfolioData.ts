@@ -1,7 +1,7 @@
 import { GalleryPlate, TeiFolio, SkillCategory } from '../types';
 
 // ─────────────────────────────────────────────────────────────────────────────
-// export const GALLERY_PLATES: GalleryPlate[] = [
+export const GALLERY_PLATES: GalleryPlate[] = [
   // ── AEN (Archives de l'État de Neuchâtel) ──────────────────────────────────
   {
     id: 'plate-aen-1',
@@ -76,21 +76,7 @@ import { GalleryPlate, TeiFolio, SkillCategory } from '../types';
     meta: 'Source : LAT • R / ggplot2 • Par commune',
     imageUrl: '/romainmargaron.io/assets/img/LAT/repartition_diapositives_commune.png',
     zoomDetails: 'Hauteur de barre proportionnelle au nombre de diapositives; communes sans fouilles documentées omises.',
-  },
-];
-  },
-  {
-    id: 'plate-lat-4',
-    number: '12',
-    category: 'LAT — Treemap',
-    title: 'Treemap de la hiérarchie spatiale du Laténium',
-    filename: 'treemap_hierarchie_latenium.png',
-    tag: 'LAT • R / treemapify',
-    description: "Treemap représentant la hiérarchie spatiale des collections du Laténium. Surface proportionnelle au nombre de pièces inventoriées par département et sous-catégorie.",
-    meta: 'Source : LAT • R / treemapify • Hiérarchie spatiale',
-    imageUrl: '/romainmargaron.io/assets/img/LAT/treemap_hierarchie_latenium.png',
-    zoomDetails: "Couleurs par département (Préhistoire, Âge du Bronze, La Tène); sous-rectangles = sous-catégories d'objets.",
-  },
+  }
 ];
 
 // ─────────────────────────────────────────────────────────────────────────────
