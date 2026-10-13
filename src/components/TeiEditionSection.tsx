@@ -2,12 +2,10 @@ import React, { useState } from 'react';
 import { TEI_FOLIOS } from '../data/portfolioData';
 
 interface TeiEditionSectionProps {
-  onOpenTeiReaderModal: () => void;
   onOpenFullscreenFacsimile: (imgUrl: string, caption: string) => void;
 }
 
 export const TeiEditionSection: React.FC<TeiEditionSectionProps> = ({
-  onOpenTeiReaderModal,
   onOpenFullscreenFacsimile,
 }) => {
   const [activeFolioKey, setActiveFolioKey] = useState<string>('183');
@@ -40,7 +38,8 @@ export const TeiEditionSection: React.FC<TeiEditionSectionProps> = ({
               Édition Numérique TEI — Procès-verbaux de la Commission Administrative de Bel-Air (1907-1916)
             </h2>
             <p className="text-[17px] text-[#334155] leading-relaxed">
-              Le document édité s'intitule : <em>« Procès - Verbaux de la commission Bel-Air - Commencé le 9 juillet 1907. Terminé le 9 mai 1916. »</em>. Suite à une transcription sur 12 pages via eScriptorium au semestre antérieur, l'échantillon des pages 183 à 185 a fait l'objet d'un encodage critique TEI P5 rigoureux.
+              Ce projet a été réalisé dans le cadre des séminaires : Bibliothèque numérique I et II dispensés à l'Université de Genève (UNIGE).
+              <br />Le document édité s'intitule : <em>« Procès - Verbaux de la commission Bel-Air - Commencé le 9 juillet 1907. Terminé le 9 mai 1916. »</em>. Suite à une transcription sur 12 pages via eScriptorium, l'échantillon des pages 183 à 185 a fait l'objet d'un encodage TEI.
             </p>
           </div>
 

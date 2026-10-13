@@ -1,12 +1,10 @@
 import React, { useState, useEffect } from 'react';
 
 interface HeaderProps {
-  onOpenCvModal: () => void;
-  onOpenContactModal: () => void;
   activeSection?: string;
 }
 
-export const Header: React.FC<HeaderProps> = ({ onOpenCvModal, onOpenContactModal }) => {
+export const Header: React.FC<HeaderProps> = () => {
   const [currentSection, setCurrentSection] = useState<string>('a-propos-et-contact');
   const [isScrolled, setIsScrolled] = useState<boolean>(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState<boolean>(false);
@@ -72,7 +70,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenCvModal, onOpenContactModa
               : 'text-[#564240] hover:text-[#171c23] hover:bg-[#FAF8F5]'
               }`}
           >
-            À propos &amp; Contact
+            À propos et Contact
           </button>
           <button
             onClick={() => scrollToSection('memoire-de-recherche')}
@@ -81,7 +79,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenCvModal, onOpenContactModa
               : 'text-[#564240] hover:text-[#171c23] hover:bg-[#FAF8F5]'
               }`}
           >
-            Mémoire de Recherche
+            Mémoire
           </button>
           <button
             onClick={() => scrollToSection('edition-tei-bel-air')}
@@ -93,22 +91,12 @@ export const Header: React.FC<HeaderProps> = ({ onOpenCvModal, onOpenContactModa
             Édition TEI Bel-Air
           </button>
           <button
-            onClick={() => scrollToSection('methodologie')}
-            className={`transition-all px-3 py-1.5 rounded text-[13px] font-semibold tracking-wider uppercase cursor-pointer ${currentSection === 'methodologie'
-              ? 'bg-[#7A2021] text-white shadow-xs'
-              : 'text-[#564240] hover:text-[#171c23] hover:bg-[#FAF8F5]'
-              }`}
-          >
-            Méthodologie
-          </button>
-          <button
             onClick={() => scrollToSection('competences')}
             className={`transition-all px-3 py-1.5 rounded text-[13px] font-semibold tracking-wider uppercase cursor-pointer ${currentSection === 'competences'
               ? 'bg-[#7A2021] text-white shadow-xs'
               : 'text-[#564240] hover:text-[#171c23] hover:bg-[#FAF8F5]'
               }`}
           >
-            Compétences
           </button>
         </nav>
 

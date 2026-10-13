@@ -1,4 +1,4 @@
-import { GalleryPlate, TeiFolio, SkillCategory } from '../types';
+import { GalleryPlate, TeiFolio } from '../types';
 
 // ─────────────────────────────────────────────────────────────────────────────
 export const GALLERY_PLATES: GalleryPlate[] = [
@@ -12,7 +12,7 @@ export const GALLERY_PLATES: GalleryPlate[] = [
     filename: 'frise_chronologique_fonds.jpeg',
     tag: 'AEN',
     description: "description a compléter",
-    meta: 'Source : AEN • Inventaire photographique • R / ggplot2',
+    meta: 'Source : Inventaire des fonds photographiques - Les Archives de l\u0027État de Neuch\u00E2tel',
     imageUrl: '/romainmargaron.io/assets/img/AEN/frise_chronologique_fonds.jpeg',
     zoomDetails: "Répartition par décennies des entrées de fonds, permettant d'identifier les pics d'acquisition institutionnelle.",
   },
@@ -25,7 +25,7 @@ export const GALLERY_PLATES: GalleryPlate[] = [
     filename: 'distribution_dans_le_temps.jpeg',
     tag: 'AEN',
     description: "description a compléter",
-    meta: 'Source : AEN • R / ggplot2 • Médiane par décennie',
+    meta: 'Source : Inventaire des fonds photographiques - Les Archives de l\u0027État de Neuch\u00E2tel',
     imageUrl: '/romainmargaron.io/assets/img/AEN/distribution_dans_le_temps.jpeg',
     zoomDetails: 'Transitions technologiques visibles : pic nitrate 1900–1930, montée acétate 1950–1970, généralisation RC 1980.',
   },
@@ -103,164 +103,6 @@ export const TEI_FOLIOS: Record<string, TeiFolio> = {
     // No facsimile image available publicly — placeholder kept minimal
     imageUrl: './assets/img/TEI/page183.png',
     secondImageUrl: './assets/img/TEI/page183-results.png',
-    caption: 'Page 183 — Procès-verbal de la commission administrative de l\'Asile de Bel-Air. Encodage TEI P5, Université de Genève, 2026.',
+    caption: 'Page 183 — Procès-verbal de la commission administrative de l\'Asile de Bel-Air. Encodage TEI, Université de Genève, 2026.',
   }
-};
-
-// ─────────────────────────────────────────────────────────────────────────────
-// SECTION 3 — COMPÉTENCES TECHNIQUES
-// ─────────────────────────────────────────────────────────────────────────────
-
-export const SKILL_CATEGORIES: SkillCategory[] = [
-  {
-    title: 'Édition & TEI',
-    subtitle: 'XML-TEI P5, Schémas, ODD Roma',
-    icon: 'terminal',
-    skills: [
-      {
-        name: 'XML-TEI P5',
-        level: 'Expertise',
-        badge: 'Avancé',
-        description: 'Balisage fin de documents manuscrits : apparat critique (<app>, <rdg>), marginalia, entités nommées et normalisation chronologique.',
-      },
-      {
-        name: 'ODD Roma & Personnalisation',
-        level: 'Production',
-        badge: 'RNG / DTD',
-        description: 'Écriture de schémas TEI sur mesure (« One Document Does it all »), exclusion de modules non pertinents et contraintes de sous-arborescences.',
-      },
-      {
-        name: 'Schematron (Règles ISO)',
-        level: 'Validation',
-        badge: 'Validation',
-        description: 'Règles assert/report pour forcer les attributs @when conformes ISO 8601 et la concordance des identifiants autorité.',
-      },
-      {
-        name: 'XPath / XSLT',
-        level: 'Transformation',
-        badge: 'Transformation',
-        description: 'Pipelines d\'extraction d\'index prosopographiques, génération HTML5 dynamique et conversion vers formats de diffusion.',
-      },
-    ],
-  },
-  {
-    title: 'HTR & Paléographie',
-    subtitle: 'Reconnaissance manuscrite et alignement',
-    icon: 'document_scanner',
-    skills: [
-      {
-        name: 'eScriptorium (Inria/EPHE)',
-        level: 'Workflow',
-        badge: 'Segmentation',
-        description: 'Découpage polygonal des lignes de texte manuscrit, masquage des annotations et gestion des transcripteurs.',
-      },
-      {
-        name: 'Kraken (Modèles Deep Learning)',
-        level: 'Modélisation',
-        badge: 'Entraînement',
-        description: 'Entraînement de modèles de transcription neuronale (CER < 4.8%) adaptés aux cursives francophones du XXe siècle.',
-      },
-      {
-        name: 'Transkribus',
-        level: 'Collation',
-        badge: 'Collation',
-        description: 'Reconnaissance assistée, alignement texte-image et exportation au format PAGE-XML / ALTO.',
-      },
-      {
-        name: 'Standard IIIF (Mirador/Cantaloupe)',
-        level: 'Diffusion',
-        badge: 'Diffusion HD',
-        description: 'Création de manifestes IIIF Image & Presentation v3, interopérabilité des serveurs d\'images patrimoniales.',
-      },
-    ],
-  },
-  {
-    title: 'Code & Analyse',
-    subtitle: 'Traitement automatique et visualisation',
-    icon: 'analytics',
-    skills: [
-      {
-        name: 'Python (Spacy, Pandas, NLTK)',
-        level: 'NLP',
-        badge: 'NLP / Traitement',
-        description: 'Reconnaissance d\'entités nommées biomédicales, extraction de matrices de cooccurrences et calculs lexicométriques.',
-      },
-      {
-        name: 'R (ggplot2, sf, treemapify)',
-        level: 'Visualisation',
-        badge: 'DataViz',
-        description: 'Production de visualisations scientifiques pour l\'analyse d\'inventaires d\'archives photographiques (AEN, BPuN, LAT).',
-      },
-      {
-        name: 'Git / GitHub Pages',
-        level: 'DevOps',
-        badge: 'CI/CD & Version',
-        description: 'Gestion de versions distribuée pour les sources XML, pipelines d\'intégration continue (GitHub Actions) pour la validation Schematron.',
-      },
-      {
-        name: 'HTML5 / CSS / JS / React',
-        level: 'Frontend',
-        badge: 'Interfaces',
-        description: 'Développement d\'interfaces synoptiques pour l\'édition critique, design responsive et typographie soignée.',
-      },
-    ],
-  },
-  {
-    title: 'Éthique & Normes',
-    subtitle: 'Science ouverte et déontologie',
-    icon: 'policy',
-    skills: [
-      {
-        name: 'Principes FAIR & Open Data',
-        level: 'Norme',
-        badge: 'Science Ouverte',
-        description: 'Findable, Accessible, Interoperable, Reusable : dépôt pérenne avec identifiants persistants (DOI, Zenodo).',
-      },
-      {
-        name: "Droit d'auteur & Archives médicales",
-        level: 'Droit',
-        badge: 'Déontologie',
-        description: 'Respect des délais de communicabilité des dossiers médicaux asilaires et anonymisation éthique des données sensibles.',
-      },
-      {
-        name: 'Métadonnées Dublin Core / CIDOC',
-        level: 'Interopérabilité',
-        badge: 'Interdépôt',
-        description: 'Indexation standardisée des fonds d\'archives, mapping sémantique vers CIDOC-CRM pour les graphes de connaissances.',
-      },
-      {
-        name: 'Gestion de projet (Agile / Sprint)',
-        level: 'Méthodologie',
-        badge: 'Gestion',
-        description: 'Planification itérative de la chaîne de numérisation, gestion d\'équipe de transcripteurs et rétro-ingénierie documentaire.',
-      },
-    ],
-  },
-];
-
-export const ODD_RULES_DOCUMENTATION = {
-  title: 'Spécification ODD Roma — Projet Bel-Air (1907-1916)',
-  schemaFile: 'Transcription_Bel_Air_1907-1916_p183-185.rng',
-  validationEngine: 'Jing / Schematron ISO',
-  repoUrl: 'https://github.com/mroylem/edition_tei_Bel-Air.io/tree/main/ODD_schema',
-  modules: [
-    { name: 'core', desc: 'Éléments textuels de base : p, head, date, persName, orgName, note, add, del.' },
-    { name: 'header', desc: 'Métadonnées catalographiques : teiHeader, fileDesc, publicationStmt, sourceDesc.' },
-    { name: 'transcr', desc: 'Transcription fac-similaire et apparat critique : pb, lb, fw, metamark, subst.' },
-    { name: 'namesdates', desc: 'Entités nommées spécialisées : persName (attribut @role), placeName, orgName.' },
-  ],
-  constraints: [
-    {
-      rule: 'Attribut @when sur les balises <date>',
-      desc: 'Chaque balise <date> de délibération doit obligatoirement comporter un attribut @when normalisé selon le standard ISO 8601 (YYYY-MM-DD).',
-    },
-    {
-      rule: "Segmentation par <div> et xml:id",
-      desc: "Chaque page est segmentée par une <div> avec un xml:id correspondant au numéro de page.",
-    },
-    {
-      rule: 'Abréviations et signes de répétition',
-      desc: 'Les abréviations (M^r, D^elle) sont conservées sous forme originale. Les signes de répétition sont transcrits par le mot attendu avec note explicative.',
-    },
-  ],
 };

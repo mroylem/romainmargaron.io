@@ -3,11 +3,9 @@ import { Header } from './components/Header';
 import { HeroSection } from './components/HeroSection';
 import { ResearchThesisSection } from './components/ResearchThesisSection';
 import { TeiEditionSection } from './components/TeiEditionSection';
-import { SkillsSection } from './components/SkillsSection';
 import { Footer } from './components/Footer';
 
 // Modals
-import { OddDocModal } from './components/modals/OddDocModal';
 import { CommentaryModal } from './components/modals/CommentaryModal';
 import { CitationModal } from './components/modals/CitationModal';
 import { FileTreeModal } from './components/modals/FileTreeModal';
@@ -17,20 +15,13 @@ import { GalleryPlate } from './types';
 
 export default function App() {
   // Modal states
-  const [isCvOpen, setIsCvOpen] = useState(false);
-  const [isTeiReaderOpen, setIsTeiReaderOpen] = useState(false);
-  const [isOddDocOpen, setIsOddDocOpen] = useState(false);
   const [isCommentaryOpen, setIsCommentaryOpen] = useState(false);
   const [isCitationOpen, setIsCitationOpen] = useState(false);
   const [isFileTreeOpen, setIsFileTreeOpen] = useState(false);
-  const [isContactOpen, setIsContactOpen] = useState(false);
   const [legalModalTopic, setLegalModalTopic] = useState<string | null>(null);
 
   // Lightbox state
   const [lightboxPlate, setLightboxPlate] = useState<GalleryPlate | null>(null);
-
-  // Methodology modal state
-  const [methodologyPhase, setMethodologyPhase] = useState<number | null>(null);
 
   // Toast download notification
   const [toastMessage, setToastMessage] = useState<string | null>(null);
@@ -91,14 +82,12 @@ export default function App() {
 
       {/* Header */}
       <Header
-        onOpenCvModal={() => setIsCvOpen(true)}
-        onOpenContactModal={() => setIsContactOpen(true)}
       />
 
       {/* Main Content Area */}
       <main className="w-full pt-10 bg-[#FAF8F5] flex-1">
         {/* Section 0: Hero & Identity */}
-        <HeroSection onOpenCvModal={() => setIsCvOpen(true)} />
+        <HeroSection />
 
         {/* Section 1: Research Thesis & Methodology */}
         <ResearchThesisSection
@@ -107,26 +96,15 @@ export default function App() {
 
         {/* Section 2: TEI Edition (Bel-Air 1907-1916) */}
         <TeiEditionSection
-          onOpenTeiReaderModal={() => setIsTeiReaderOpen(true)}
           onOpenFullscreenFacsimile={handleOpenFullscreenFacsimile}
         />
-
-        {/* Section 3: Technical Skills & Digital Humanities Toolbox */}
-        <SkillsSection />
       </main>
 
       {/* Footer */}
       <Footer
-        onOpenLegalModal={(topic) => setLegalModalTopic(topic)}
-        onOpenTeiReader={() => setIsTeiReaderOpen(true)}
       />
 
       {/* Modals */}
-      <OddDocModal
-        isOpen={isOddDocOpen}
-        onClose={() => setIsOddDocOpen(false)}
-      />
-
       <CommentaryModal
         isOpen={isCommentaryOpen}
         onClose={() => setIsCommentaryOpen(false)}

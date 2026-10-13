@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
 
 interface HeroSectionProps {
-  onOpenCvModal: () => void;
 }
 
-export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenCvModal }) => {
+export const HeroSection: React.FC<HeroSectionProps> = ({ }) => {
   const [copiedField, setCopiedField] = useState<string | null>(null);
 
   const handleCopy = (text: string, fieldName: string) => {
@@ -36,7 +35,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenCvModal }) => {
               Romain Margaron
             </h1>
             <p className="font-serif text-xl sm:text-2xl text-[#4A2E12] mt-1 font-normal italic">
-              Étudiant-chercheur en Humanités Numériques &amp; Valorisation du Patrimoine
+              Diplômé en Patrimoine régional et Humanités numériques
             </p>
           </div>
 
