@@ -48,21 +48,21 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenCvModal }) => {
           </p>
 
           {/* Contact grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 pt-2">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 pt-2">
             {/* Courriel */}
             <div className="flex items-center gap-2.5 p-3 rounded bg-[#FAF8F5] border border-[#E2DACD]/80 text-[#1E232A] shadow-xs hover:border-[#7A2021] transition-colors relative group">
               <span className="material-symbols-outlined text-[#7A2021] text-[20px] shrink-0">mail</span>
               <div className="min-w-0 flex-1 flex flex-col">
                 <span className="text-[11px] font-semibold text-[#64748B] uppercase tracking-wider">Courriel</span>
                 <a
-                  href="mailto:romain.margaron@unine.ch"
+                  href="mailto:romain.margaron@gmail.com"
                   className="text-[14px] text-[#5b070e] hover:underline truncate font-medium"
                 >
-                  romain.margaron@unine.ch
+                  romain.margaron@gmail.com
                 </a>
               </div>
               <button
-                onClick={() => handleCopy('romain.margaron@unine.ch', 'courriel')}
+                onClick={() => handleCopy('romain.margaron@gmail.com', 'courriel')}
                 title="Copier le courriel"
                 className="opacity-0 group-hover:opacity-100 transition-opacity p-1 hover:bg-[#F4EFEB] rounded text-[#64748B] hover:text-[#5b070e]"
               >
@@ -100,7 +100,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenCvModal }) => {
               <span className="material-symbols-outlined text-[#C29B38] text-[20px] shrink-0">location_on</span>
               <div className="min-w-0 flex flex-col">
                 <span className="text-[11px] font-semibold text-[#64748B] uppercase tracking-wider">Localisation</span>
-                <span className="text-[14px] text-[#1E232A] font-medium">Neuchâtel / Genève, CH</span>
+                <span className="text-[14px] text-[#1E232A] font-medium">Echallens</span>
               </div>
             </div>
           </div>

@@ -33,37 +33,6 @@ export const Footer: React.FC<FooterProps> = ({ onOpenLegalModal, onOpenTeiReade
 
           {/* Col 2 */}
           <div className="flex flex-col gap-2">
-            <span className="text-[13px] font-semibold text-[#171c23] uppercase tracking-wider">
-              Corpus &amp; Projets
-            </span>
-            <ul className="flex flex-col gap-1.5 text-[14px] text-[#334155]">
-              <li>
-                <button
-                  onClick={onOpenTeiReader}
-                  className="hover:text-[#5b070e] transition-colors underline-offset-4 hover:underline text-left cursor-pointer"
-                >
-                  Édition critique XML-TEI du Fonds Bel-Air
-                </button>
-              </li>
-              <li>
-                <a
-                  href="https://github.com/mroylem/transcription_Bel-Air"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="hover:text-[#5b070e] transition-colors underline-offset-4 hover:underline"
-                >
-                  Protocoles de collation &amp; HTR eScriptorium / Kraken
-                </a>
-              </li>
-              <li>
-                <button
-                  onClick={() => onOpenLegalModal('ontologies')}
-                  className="hover:text-[#5b070e] transition-colors underline-offset-4 hover:underline text-left cursor-pointer"
-                >
-                  Ontologies CIDOC-CRM &amp; Graphes de connaissances
-                </button>
-              </li>
-            </ul>
           </div>
 
           {/* Col 3 */}
@@ -73,11 +42,11 @@ export const Footer: React.FC<FooterProps> = ({ onOpenLegalModal, onOpenTeiReade
             </span>
             <div className="flex flex-col gap-2 text-[14px] text-[#334155]">
               <a
-                href="mailto:romain.margaron@unine.ch"
+                href="mailto:romain.margaron@gmail.com"
                 className="inline-flex items-center gap-2 hover:text-[#5b070e] transition-colors"
               >
                 <span className="material-symbols-outlined text-[18px] text-[#7A2021]">mail</span>
-                <span>romain.margaron@unine.ch</span>
+                <span>romain.margaron@gmail.com</span>
               </a>
               <a
                 href="https://github.com/mroylem"
