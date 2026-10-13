@@ -1,10 +1,7 @@
 import { GalleryPlate, TeiFolio, SkillCategory } from '../types';
 
 // ─────────────────────────────────────────────────────────────────────────────
-// SECTION 1 — MÉMOIRE : Visualisations R issues des stages AEN, BPuN, LAT
-// ─────────────────────────────────────────────────────────────────────────────
-
-export const GALLERY_PLATES: GalleryPlate[] = [
+// export const GALLERY_PLATES: GalleryPlate[] = [
   // ── AEN (Archives de l'État de Neuchâtel) ──────────────────────────────────
   {
     id: 'plate-aen-1',
@@ -21,30 +18,6 @@ export const GALLERY_PLATES: GalleryPlate[] = [
   {
     id: 'plate-aen-2',
     number: '02',
-    category: 'AEN — Circle Packing',
-    title: 'Projection des fonds et de leur taille (Circle Packing)',
-    filename: 'projection_circle_packing.jpeg',
-    tag: 'AEN • R / packcircles',
-    description: "Représentation par cercles proportionnels des volumes documentaires de chaque fonds photographique de l'AEN. Permet de visualiser d'un coup d'œil les collections dominantes.",
-    meta: 'Source : AEN • R / packcircles • Volumétrie documentaire',
-    imageUrl: '/romainmargaron.io/assets/img/AEN/projection_circle_packing.jpeg',
-    zoomDetails: 'Chaque cercle représente un fonds; le diamètre est proportionnel au nombre de clichés inventoriés.',
-  },
-  {
-    id: 'plate-aen-3',
-    number: '03',
-    category: 'AEN — Scatter Plot',
-    title: 'Volume et diversité des fonds (Scatter Plot)',
-    filename: 'scatter_plot_volume_diversite.jpeg',
-    tag: 'AEN • R / ggplot2',
-    description: "Nuage de points croisant le volume et la diversité typologique des fonds photographiques de l'AEN. Révèle les fonds denses et hétérogènes versus les collections spécialisées.",
-    meta: 'Source : AEN • R / ggplot2 • Volume × Diversité',
-    imageUrl: '/romainmargaron.io/assets/img/AEN/scatter_plot_volume_diversite.jpeg',
-    zoomDetails: 'Axes : nombre total de clichés (x) × nombre de types de supports distincts (y).',
-  },
-  {
-    id: 'plate-aen-4',
-    number: '04',
     category: 'AEN — Distribution temporelle',
     title: 'Distribution des types de supports (1880–1995)',
     filename: 'distribution_dans_le_temps.jpeg',
@@ -57,7 +30,7 @@ export const GALLERY_PLATES: GalleryPlate[] = [
   // ── BPuN (Bibliothèque publique et universitaire de Neuchâtel) ───────────────
   {
     id: 'plate-bpun-1',
-    number: '05',
+    number: '03',
     category: 'BPuN — Cartographie SNG',
     title: 'Cartographie des fonds photographiques SNG',
     filename: 'cartographie_fonds_SNG.jpeg',
@@ -69,31 +42,7 @@ export const GALLERY_PLATES: GalleryPlate[] = [
   },
   {
     id: 'plate-bpun-2',
-    number: '06',
-    category: 'BPuN — Frise chronologique A–G',
-    title: 'Frise chronologique des fonds BPuN (A–G)',
-    filename: 'frise_chronologique_A_G.jpeg',
-    tag: 'BPuN • R / ggplot2',
-    description: "Frise temporelle de la première moitié (A–G) des fonds photographiques de la BPuN. Visualise l'ancienneté et la durée de chaque fonds classé alphabétiquement.",
-    meta: 'Source : BPuN • R / ggplot2 • Fonds A à G',
-    imageUrl: '/romainmargaron.io/assets/img/BPuN/frise_chronologique_A_G.jpeg',
-    zoomDetails: "Longueur de la barre proportionnelle à l'étendue temporelle du fonds; position = dates extrêmes.",
-  },
-  {
-    id: 'plate-bpun-3',
-    number: '07',
-    category: 'BPuN — Frise chronologique H–Z',
-    title: 'Frise chronologique des fonds BPuN (H–Z)',
-    filename: 'frise_chronologique_H_Z.jpeg',
-    tag: 'BPuN • R / ggplot2',
-    description: "Frise temporelle de la seconde moitié (H–Z) des fonds photographiques de la BPuN. Complémentaire de la planche précédente pour une vue d'ensemble complète.",
-    meta: 'Source : BPuN • R / ggplot2 • Fonds H à Z',
-    imageUrl: '/romainmargaron.io/assets/img/BPuN/frise_chronologique_H_Z.jpeg',
-    zoomDetails: 'Fonds Vouga et Wurflein parmi les plus anciens (1870–1890); fonds récents post-1980 en fin de liste.',
-  },
-  {
-    id: 'plate-bpun-4',
-    number: '08',
+    number: '04',
     category: 'BPuN — Projection par photographe',
     title: 'Projection des fonds SNG par photographe',
     filename: 'projection_fonds_par_photographe.jpeg',
@@ -103,10 +52,10 @@ export const GALLERY_PLATES: GalleryPlate[] = [
     imageUrl: '/romainmargaron.io/assets/img/BPuN/projection_fonds_par_photographe.jpeg',
     zoomDetails: "Photographes anonymes regroupés sous label «Inconnu»; clusters par studio ou institution d'appartenance.",
   },
-  // ── LAT (Laténium — Parc et musée d'archéologie de Neuchâtel) ───────────────
+  // ── LAT (Laténium — Parc et musée d'archéologie de Neuchâtel) ──────────────
   {
     id: 'plate-lat-1',
-    number: '09',
+    number: '05',
     category: 'LAT — Cartographie sites',
     title: 'Cartographie des sites archéologiques (Canton de Neuchâtel)',
     filename: 'cartographie_sites_fouilles.png',
@@ -118,19 +67,7 @@ export const GALLERY_PLATES: GalleryPlate[] = [
   },
   {
     id: 'plate-lat-2',
-    number: '10',
-    category: 'LAT — Dendrogramme',
-    title: "Dendrogramme de la hiérarchie des numéros d'inventaire",
-    filename: 'dendrogramme_numero_inventaire.png',
-    tag: 'LAT • R / ggraph',
-    description: "Structure hiérarchique des numéros d'identification des diapositives du Laténium sous forme d'arbre. Révèle la logique de classification interne de l'inventaire.",
-    meta: 'Source : LAT • R / ggraph • Classification hiérarchique',
-    imageUrl: '/romainmargaron.io/assets/img/LAT/dendrogramme_numero_inventaire.png',
-    zoomDetails: "Nœuds colorés par préfixe de série (fouille, objet, site); profondeur = niveau de spécificité du numéro.",
-  },
-  {
-    id: 'plate-lat-3',
-    number: '11',
+    number: '06',
     category: 'LAT — Répartition diapositives',
     title: 'Répartition des diapositives par commune',
     filename: 'repartition_diapositives_commune.png',
@@ -139,6 +76,8 @@ export const GALLERY_PLATES: GalleryPlate[] = [
     meta: 'Source : LAT • R / ggplot2 • Par commune',
     imageUrl: '/romainmargaron.io/assets/img/LAT/repartition_diapositives_commune.png',
     zoomDetails: 'Hauteur de barre proportionnelle au nombre de diapositives; communes sans fouilles documentées omises.',
+  },
+];
   },
   {
     id: 'plate-lat-4',
