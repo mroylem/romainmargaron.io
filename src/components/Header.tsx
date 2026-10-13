@@ -57,77 +57,56 @@ export const Header: React.FC<HeaderProps> = ({ onOpenCvModal, onOpenContactModa
 
   return (
     <header
-      className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-        isScrolled
-          ? 'bg-[#F4EFEB]/95 backdrop-blur-md shadow-[0_2px_12px_rgba(74,46,18,0.08)] py-3'
-          : 'bg-[#F4EFEB]/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(74,46,18,0.06)] py-4'
-      }`}
+      className={`fixed top-0 w-full z-50 transition-all duration-300 ${isScrolled
+        ? 'bg-[#F4EFEB]/95 backdrop-blur-md shadow-[0_2px_12px_rgba(74,46,18,0.08)] py-3'
+        : 'bg-[#F4EFEB]/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(74,46,18,0.06)] py-4'
+        }`}
     >
-      <div className="max-w-7xl mx-auto px-6 lg:px-12 flex items-center justify-between gap-4">
-        {/* Brand Name */}
-        <button
-          onClick={() => scrollToSection('a-propos-et-contact')}
-          className="flex items-center gap-2 text-left group cursor-pointer focus:outline-none"
-        >
-          <div className="flex flex-col">
-            <span className="font-serif text-xl sm:text-2xl text-[#5b070e] font-semibold leading-none group-hover:text-[#7A2021] transition-colors">
-              Romain Margaron
-            </span>
-            <span className="text-[11px] font-semibold text-[#64748B] uppercase tracking-widest mt-1">
-              Humanités Numériques &amp; Archives
-            </span>
-          </div>
-        </button>
-
+      <div className="max-w-7xl mx-auto px-6 lg:px-0 flex items-center justify-between gap-4">
         {/* Desktop Navigation */}
         <nav className="hidden lg:flex items-center gap-3 text-[13px] font-semibold tracking-wider uppercase">
           <button
             onClick={() => scrollToSection('a-propos-et-contact')}
-            className={`transition-all px-3 py-1.5 rounded text-[13px] font-semibold tracking-wider uppercase cursor-pointer ${
-              currentSection === 'a-propos-et-contact'
-                ? 'bg-[#7A2021] text-white shadow-xs'
-                : 'text-[#564240] hover:text-[#171c23] hover:bg-[#FAF8F5]'
-            }`}
+            className={`transition-all px-3 py-1.5 rounded text-[13px] font-semibold tracking-wider uppercase cursor-pointer ${currentSection === 'a-propos-et-contact'
+              ? 'bg-[#7A2021] text-white shadow-xs'
+              : 'text-[#564240] hover:text-[#171c23] hover:bg-[#FAF8F5]'
+              }`}
           >
             À propos &amp; Contact
           </button>
           <button
             onClick={() => scrollToSection('memoire-de-recherche')}
-            className={`transition-all px-3 py-1.5 rounded text-[13px] font-semibold tracking-wider uppercase cursor-pointer ${
-              currentSection === 'memoire-de-recherche'
-                ? 'bg-[#7A2021] text-white shadow-xs'
-                : 'text-[#564240] hover:text-[#171c23] hover:bg-[#FAF8F5]'
-            }`}
+            className={`transition-all px-3 py-1.5 rounded text-[13px] font-semibold tracking-wider uppercase cursor-pointer ${currentSection === 'memoire-de-recherche'
+              ? 'bg-[#7A2021] text-white shadow-xs'
+              : 'text-[#564240] hover:text-[#171c23] hover:bg-[#FAF8F5]'
+              }`}
           >
             Mémoire de Recherche
           </button>
           <button
             onClick={() => scrollToSection('edition-tei-bel-air')}
-            className={`transition-all px-3 py-1.5 rounded text-[13px] font-semibold tracking-wider uppercase cursor-pointer ${
-              currentSection === 'edition-tei-bel-air'
-                ? 'bg-[#7A2021] text-white shadow-xs'
-                : 'text-[#564240] hover:text-[#171c23] hover:bg-[#FAF8F5]'
-            }`}
+            className={`transition-all px-3 py-1.5 rounded text-[13px] font-semibold tracking-wider uppercase cursor-pointer ${currentSection === 'edition-tei-bel-air'
+              ? 'bg-[#7A2021] text-white shadow-xs'
+              : 'text-[#564240] hover:text-[#171c23] hover:bg-[#FAF8F5]'
+              }`}
           >
             Édition TEI Bel-Air
           </button>
           <button
             onClick={() => scrollToSection('methodologie')}
-            className={`transition-all px-3 py-1.5 rounded text-[13px] font-semibold tracking-wider uppercase cursor-pointer ${
-              currentSection === 'methodologie'
-                ? 'bg-[#7A2021] text-white shadow-xs'
-                : 'text-[#564240] hover:text-[#171c23] hover:bg-[#FAF8F5]'
-            }`}
+            className={`transition-all px-3 py-1.5 rounded text-[13px] font-semibold tracking-wider uppercase cursor-pointer ${currentSection === 'methodologie'
+              ? 'bg-[#7A2021] text-white shadow-xs'
+              : 'text-[#564240] hover:text-[#171c23] hover:bg-[#FAF8F5]'
+              }`}
           >
             Méthodologie
           </button>
           <button
             onClick={() => scrollToSection('competences')}
-            className={`transition-all px-3 py-1.5 rounded text-[13px] font-semibold tracking-wider uppercase cursor-pointer ${
-              currentSection === 'competences'
-                ? 'bg-[#7A2021] text-white shadow-xs'
-                : 'text-[#564240] hover:text-[#171c23] hover:bg-[#FAF8F5]'
-            }`}
+            className={`transition-all px-3 py-1.5 rounded text-[13px] font-semibold tracking-wider uppercase cursor-pointer ${currentSection === 'competences'
+              ? 'bg-[#7A2021] text-white shadow-xs'
+              : 'text-[#564240] hover:text-[#171c23] hover:bg-[#FAF8F5]'
+              }`}
           >
             Compétences
           </button>
@@ -135,22 +114,6 @@ export const Header: React.FC<HeaderProps> = ({ onOpenCvModal, onOpenContactModa
 
         {/* Action Button & Avatar */}
         <div className="flex items-center gap-3">
-          <button
-            onClick={onOpenCvModal}
-            className="hidden sm:inline-flex items-center gap-2 bg-[#7A2021] hover:bg-[#5b070e] text-white text-[13px] font-semibold uppercase tracking-wider px-4 py-2.5 rounded transition-all shadow-[0_1px_4px_rgba(74,46,18,0.12)] cursor-pointer"
-          >
-            <span className="material-symbols-outlined text-[18px]">download</span>
-            <span>Télécharger le CV (PDF)</span>
-          </button>
-
-          <button
-            onClick={onOpenContactModal}
-            title="Dossier de candidature & Profil"
-            className="w-9 h-9 rounded-full bg-[#5b070e] hover:bg-[#7A2021] text-white flex items-center justify-center shrink-0 cursor-pointer shadow-sm transition-transform active:scale-95"
-          >
-            <span className="material-symbols-outlined text-[20px]">person</span>
-          </button>
-
           {/* Mobile hamburger */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -197,18 +160,6 @@ export const Header: React.FC<HeaderProps> = ({ onOpenCvModal, onOpenContactModa
           >
             Compétences
           </button>
-          <div className="pt-2 border-t border-[#E2DACD] flex flex-col gap-2">
-            <button
-              onClick={() => {
-                setMobileMenuOpen(false);
-                onOpenCvModal();
-              }}
-              className="inline-flex items-center justify-center gap-2 bg-[#7A2021] text-white text-[13px] font-semibold uppercase tracking-wider py-2.5 px-4 rounded"
-            >
-              <span className="material-symbols-outlined text-[18px]">download</span>
-              <span>Télécharger le CV (PDF)</span>
-            </button>
-          </div>
         </div>
       )}
     </header>

@@ -13,6 +13,15 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenCvModal }) => {
     setTimeout(() => setCopiedField(null), 2500);
   };
 
+  const handleDownload = () => {
+    const a = document.createElement('a');
+    a.href = '/romainmargaron.io/CV_RM_2026.pdf';
+    a.download = 'CV_Romain_Margaron_2026.pdf';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+  };
+
   return (
     <section
       id="a-propos-et-contact"
@@ -21,14 +30,6 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenCvModal }) => {
       <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-10 items-start justify-between">
         {/* Left column: Academic Identity & Bio */}
         <div className="flex-1 flex flex-col gap-5">
-          {/* Badge */}
-          <div className="inline-flex items-center gap-2 self-start bg-[#FAF8F5] px-3 py-1 rounded border border-[#E2DACD] shadow-xs">
-            <span className="w-2 h-2 rounded-full bg-[#7A2021] animate-pulse"></span>
-            <span className="text-[11px] font-semibold uppercase tracking-widest text-[#7A2021]">
-              Dossier de Candidature Académique • 2025
-            </span>
-          </div>
-
           {/* Heading */}
           <div>
             <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl text-[#5b070e] tracking-tight font-semibold">
@@ -102,42 +103,13 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenCvModal }) => {
                 <span className="text-[14px] text-[#1E232A] font-medium">Neuchâtel / Genève, CH</span>
               </div>
             </div>
-
-            {/* Dépôt Code */}
-            <div className="flex items-center gap-2.5 p-3 rounded bg-[#FAF8F5] border border-[#E2DACD]/80 text-[#1E232A] shadow-xs hover:border-[#7A2021] transition-colors">
-              <span className="material-symbols-outlined text-[#7A2021] text-[20px] shrink-0">terminal</span>
-              <div className="min-w-0 flex flex-col">
-                <span className="text-[11px] font-semibold text-[#64748B] uppercase tracking-wider">Dépôt Code</span>
-                <a
-                  href="https://github.com/mroylem"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="text-[14px] text-[#5b070e] hover:underline truncate font-medium"
-                >
-                  github.com/mroylem
-                </a>
-              </div>
-            </div>
           </div>
         </div>
 
         {/* Right column: Action Card / CV Download */}
         <div className="w-full lg:w-80 shrink-0 bg-[#FAF8F5] p-6 rounded border border-[#E2DACD] shadow-md flex flex-col gap-4">
-          <div className="flex items-center justify-between border-b border-[#E2DACD] pb-3">
-            <span className="text-[13px] uppercase tracking-wider text-[#4A2E12] font-semibold">
-              Dossier PDF
-            </span>
-            <span className="text-[11px] px-2 py-0.5 rounded bg-[#C29B38]/15 text-[#4A2E12] font-medium">
-              Version mise à jour 2025
-            </span>
-          </div>
-
-          <p className="text-[14px] text-[#64748B] leading-relaxed">
-            Curriculum vitæ académique synthétisant cursus (UNINE / UNIGE), publications, maîtrises logicielles et corpus transcrits.
-          </p>
-
           <button
-            onClick={onOpenCvModal}
+            onClick={handleDownload}
             className="w-full inline-flex items-center justify-center gap-2 bg-[#7A2021] hover:bg-[#5b070e] text-white text-[13px] uppercase tracking-wider font-semibold py-3 px-4 rounded transition-all shadow hover:shadow-md cursor-pointer"
           >
             <span className="material-symbols-outlined text-[20px]">download</span>

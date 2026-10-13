@@ -4,12 +4,10 @@ import { GalleryPlate } from '../types';
 
 interface ResearchThesisSectionProps {
   onOpenLightbox: (plate: GalleryPlate) => void;
-  onOpenMethodologyModal: (phaseIndex: number) => void;
 }
 
 export const ResearchThesisSection: React.FC<ResearchThesisSectionProps> = ({
-  onOpenLightbox,
-  onOpenMethodologyModal,
+  onOpenLightbox
 }) => {
   const [activePlate, setActivePlate] = useState<GalleryPlate>(GALLERY_PLATES[0]);
 
@@ -21,13 +19,13 @@ export const ResearchThesisSection: React.FC<ResearchThesisSectionProps> = ({
       {/* Header */}
       <div className="flex flex-col gap-2">
         <div className="flex items-center gap-3">
-          <span className="font-mono text-sm text-[#7A2021] font-bold tracking-wider">
-            [PROJET MAJEUR 01]
+          <span className="text-[11px] px-2 py-0.5 rounded bg-[#C29B38]/20 text-[#4A2E12] font-semibold uppercase tracking-wider">
+            Mémoire de Master
           </span>
           <div className="h-px bg-[#E2DACD] flex-1"></div>
         </div>
         <h2 className="font-serif text-3xl sm:text-4xl lg:text-[42px] text-[#5b070e] font-medium tracking-tight leading-tight">
-          Mémoire de Recherche : Analyse et Traitement Numérique des Archives Hospitalières et Administratives
+          Valoriser les archives photographiques par la datavisualisation : potentiel d’un outil de médiation dans trois institutions patrimoniales neuchâteloises.
         </h2>
         <p className="text-[17px] text-[#64748B] max-w-3xl leading-relaxed">
           Modélisation épistémologique et instrumentation computationnelle d'un registre asilaire du début du XXᵉ siècle.
@@ -39,24 +37,10 @@ export const ResearchThesisSection: React.FC<ResearchThesisSectionProps> = ({
         {/* Workstation Image */}
         <div className="lg:col-span-7 flex flex-col gap-3">
           <div
-            onClick={() =>
-              onOpenLightbox({
-                id: 'workstation',
-                number: '00',
-                category: 'Laboratoire',
-                title: "Poste d'investigation philologique & chaîne HTR",
-                filename: 'lab-workstation-unine.jpg',
-                tag: 'Environnement de Recherche',
-                description: "Environnement matériel et logiciel de confrontation paléographique. Double écran pour l'alignement HTR sur eScriptorium, moniteur de seuillage colorimétrique et consultation du registre papier original.",
-                meta: 'Laboratoire d’histoire et humanités numériques (UNINE/UNIGE)',
-                imageUrl:
-                  'https://lh3.googleusercontent.com/aida-public/AB6AXuCJS-592JtGNa1fXCGe3ELaVJeuKl4Y3WjF7GSuGrnbdiL5kSVfrKuOU7Zf9VvH3NUWjJ6on9NepJxaxrNBU9cXYnA8szs57rdc35ch4POy40xoqaTbS3YTZx4b3KbU-0yvrILbefbizlg4NCrV51j2N81O6HKt55xA97aOYvCvo2-yTpm4eWb5tGRbqAO95OxYpEMYRgRqW9jIsxS24Z5-WngIgoJrM5lOTAa0Y-tpe61L15vAZ3ynmw',
-              })
-            }
-            className="relative w-full h-[380px] sm:h-[420px] rounded overflow-hidden border border-[#E2DACD] shadow-xs group bg-[#F4EFEB] cursor-pointer"
+            className="relative w-full h-[380px] sm:h-[420px] rounded overflow-hidden border border-[#E2DACD] shadow-xs group bg-[#F4EFEB]"
           >
             <img
-              src="https://lh3.googleusercontent.com/aida-public/AB6AXuCJS-592JtGNa1fXCGe3ELaVJeuKl4Y3WjF7GSuGrnbdiL5kSVfrKuOU7Zf9VvH3NUWjJ6on9NepJxaxrNBU9cXYnA8szs57rdc35ch4POy40xoqaTbS3YTZx4b3KbU-0yvrILbefbizlg4NCrV51j2N81O6HKt55xA97aOYvCvo2-yTpm4eWb5tGRbqAO95OxYpEMYRgRqW9jIsxS24Z5-WngIgoJrM5lOTAa0Y-tpe61L15vAZ3ynmw"
+              src="./assets/img/memoire.webp"
               alt="Environnement de recherche, manuscrit d'archives et poste de travail numérique"
               className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
             />
@@ -67,9 +51,6 @@ export const ResearchThesisSection: React.FC<ResearchThesisSectionProps> = ({
               <p className="font-serif text-xl sm:text-2xl font-medium mt-1">
                 Collation critique, confrontation paléographique et modèles HTR
               </p>
-            </div>
-            <div className="absolute top-3 right-3 bg-[#1E232A]/70 text-white p-2 rounded-full backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity">
-              <span className="material-symbols-outlined text-[18px]">zoom_in</span>
             </div>
           </div>
           <div className="flex items-center justify-between text-[#64748B] text-[13px] px-1">
@@ -82,22 +63,24 @@ export const ResearchThesisSection: React.FC<ResearchThesisSectionProps> = ({
         <div className="lg:col-span-5 flex flex-col justify-between bg-[#F4EFEB] p-6 lg:p-8 rounded border border-[#E2DACD] shadow-xs gap-5">
           <div className="flex flex-col gap-4">
             <h3 className="font-serif text-2xl text-[#5b070e] font-semibold border-b border-[#E2DACD] pb-2">
-              Problématique &amp; Apports Scientifiques
+              Résumé du projet
             </h3>
             <p className="text-[16px] text-[#334155] leading-relaxed">
-              Ce travail interroge l'opacité et la sémantisation des délibérations de la Commission Administrative asilaire. Comment passer d'un manuscrit cursif complexe, marqué par des typologies hétérogènes (biffures, cachets d'état civil, ajouts marginaux), à un corpus FAIR interrogeable ?
+              Ce projet de recherche étudie le potentiel de la datavisualisation appliquée à la gestion, la valorisation et la médiation des archives photographiques. Un corpus de plus de 240 000 objets a été constitué et traité à l’aide du langage libre R. Il a été réalisé à partir d’inventaires physiques et de données moissonnées en ligne, au sein de trois institutions patrimoniales neuchâteloises : les Archives de l’État de Neuchâtel, le Musée d’archéologie Laténium et la Bibliothèque publique et universitaire de Neuchâtel.
+              C’est ainsi qu’une quinzaine de visualisations de données, telles que des cartographies, des diagrammes de dispersion ou de cercles imbriqués, ont été générées afin d'être confrontées aux réalités du terrain.
+              Les résultats de l’étude indiquent que, bien qu’elle ne puisse remplacer les instruments de recherche traditionnels, la datavisualisation constitue un outil de médiation et de communication particulièrement efficace. En outre, la dataviz offre aux professionnels comme aux différents publics des vues d'ensemble inédites pour appréhender la complexité des fonds photographiques.
             </p>
             <div className="flex flex-col gap-2.5 pt-2">
               <div className="flex items-start gap-2.5 text-[#1E232A] text-[14px]">
                 <span className="material-symbols-outlined text-[#7A2021] text-[18px] shrink-0 mt-0.5">check_circle</span>
                 <span>
-                  <strong>Corpus :</strong> Registres manuscrits in-folio (1907-1916), plus de 450 séances colligées.
+                  <strong>Corpus :</strong> Plus de 240 000 archives photographiques recensées au travers de 3 insitutions patrimoniales neuchâteloises
                 </span>
               </div>
               <div className="flex items-start gap-2.5 text-[#1E232A] text-[14px]">
                 <span className="material-symbols-outlined text-[#7A2021] text-[18px] shrink-0 mt-0.5">check_circle</span>
                 <span>
-                  <strong>Hypothèse :</strong> L'alignement HTR-TEI lève les biais de transcription manuelle et objective l'évolution sociologique des internements.
+                  <strong>Insitutions patrimoniales neuchâteloises :</strong> Archives de l'État de Neuchâtel (AEN), Laténium (Musée d'archéologie), Bibliothèque publique et universitaire de Neuchâtel (BPUN)
                 </span>
               </div>
               <div className="flex items-start gap-2.5 text-[#1E232A] text-[14px]">
@@ -110,10 +93,10 @@ export const ResearchThesisSection: React.FC<ResearchThesisSectionProps> = ({
           </div>
           <div className="p-3 bg-[#FAF8F5] rounded border border-[#E2DACD] flex items-center justify-between">
             <span className="text-[11px] uppercase tracking-wider text-[#64748B] font-semibold">
-              Direction de recherche
+              Direction de mémoire
             </span>
             <span className="text-[13px] font-semibold text-[#4A2E12]">
-              Professeurs récurrents UNIGE / UNINE
+              Lionel Bartolini, archiviste cantonal aux Archives de l'État de Neuchâtel
             </span>
           </div>
         </div>
@@ -124,10 +107,10 @@ export const ResearchThesisSection: React.FC<ResearchThesisSectionProps> = ({
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-[#E2DACD] pb-3">
           <div>
             <span className="text-[13px] uppercase tracking-wider text-[#7A2021] font-semibold">
-              Dossier Iconographique &amp; Visualisations
+              Visualisation de données
             </span>
             <h4 className="font-serif text-2xl text-[#1E232A] font-medium">
-              Sélection de planches d'analyse documentaire
+              Quelques datavisualisations issues du projet
             </h4>
           </div>
           <span className="text-[12px] text-[#64748B]">Cliquer sur une vignette pour afficher l'aperçu agrandi</span>
@@ -176,7 +159,7 @@ export const ResearchThesisSection: React.FC<ResearchThesisSectionProps> = ({
         </div>
 
         {/* Thumbnail Selectors */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 pt-2">
+        <div className="grid grid-cols-2 gap-3 pt-2">
           {GALLERY_PLATES.map((plate) => {
             const isActive = activePlate.id === plate.id;
             return (
@@ -185,21 +168,15 @@ export const ResearchThesisSection: React.FC<ResearchThesisSectionProps> = ({
                 onClick={() => setActivePlate(plate)}
                 type="button"
                 className={`text-left p-3.5 rounded bg-[#FAF8F5] transition-all flex flex-col gap-1.5 hover:bg-[#F4EFEB] cursor-pointer ${isActive
-                    ? 'border-2 border-[#7A2021] shadow-xs'
-                    : 'border border-[#E2DACD] opacity-85 hover:opacity-100'
+                  ? 'border-2 border-[#7A2021] shadow-xs'
+                  : 'border border-[#E2DACD] opacity-85 hover:opacity-100'
                   }`}
               >
                 <span
                   className={`text-[12px] font-semibold uppercase ${isActive ? 'text-[#7A2021]' : 'text-[#64748B]'
                     }`}
                 >
-                  {plate.number}. {plate.category}
-                </span>
-                <span className="text-[14px] text-[#1E232A] font-medium truncate">
-                  {plate.title}
-                </span>
-                <span className="font-mono text-[11px] text-[#64748B] truncate">
-                  {plate.filename}
+                  {plate.number}. {plate.title}
                 </span>
               </button>
             );
@@ -221,7 +198,6 @@ export const ResearchThesisSection: React.FC<ResearchThesisSectionProps> = ({
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
           {/* Phase 01 */}
           <div
-            onClick={() => onOpenMethodologyModal(0)}
             className="flex flex-col bg-[#F4EFEB] p-6 rounded border border-[#E2DACD] shadow-xs relative overflow-hidden group hover:border-[#C29B38] transition-all cursor-pointer hover:-translate-y-0.5"
           >
             <div className="flex items-center justify-between pb-3 border-b border-[#E2DACD]">
@@ -240,7 +216,6 @@ export const ResearchThesisSection: React.FC<ResearchThesisSectionProps> = ({
 
           {/* Phase 02 */}
           <div
-            onClick={() => onOpenMethodologyModal(1)}
             className="flex flex-col bg-[#F4EFEB] p-6 rounded border border-[#E2DACD] shadow-xs relative overflow-hidden group hover:border-[#C29B38] transition-all cursor-pointer hover:-translate-y-0.5"
           >
             <div className="flex items-center justify-between pb-3 border-b border-[#E2DACD]">
@@ -259,7 +234,6 @@ export const ResearchThesisSection: React.FC<ResearchThesisSectionProps> = ({
 
           {/* Phase 03 */}
           <div
-            onClick={() => onOpenMethodologyModal(2)}
             className="flex flex-col bg-[#F4EFEB] p-6 rounded border border-[#E2DACD] shadow-xs relative overflow-hidden group hover:border-[#C29B38] transition-all cursor-pointer hover:-translate-y-0.5"
           >
             <div className="flex items-center justify-between pb-3 border-b border-[#E2DACD]">
@@ -280,7 +254,6 @@ export const ResearchThesisSection: React.FC<ResearchThesisSectionProps> = ({
 
           {/* Phase 04 */}
           <div
-            onClick={() => onOpenMethodologyModal(3)}
             className="flex flex-col bg-[#F4EFEB] p-6 rounded border border-[#E2DACD] shadow-xs relative overflow-hidden group hover:border-[#C29B38] transition-all cursor-pointer hover:-translate-y-0.5"
           >
             <div className="flex items-center justify-between pb-3 border-b border-[#E2DACD]">

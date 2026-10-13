@@ -3,20 +3,15 @@ import { Header } from './components/Header';
 import { HeroSection } from './components/HeroSection';
 import { ResearchThesisSection } from './components/ResearchThesisSection';
 import { TeiEditionSection } from './components/TeiEditionSection';
-import { ProjectResourcesSection } from './components/ProjectResourcesSection';
 import { SkillsSection } from './components/SkillsSection';
 import { Footer } from './components/Footer';
 
 // Modals
-import { CvModal } from './components/modals/CvModal';
-import { TeiReaderModal } from './components/modals/TeiReaderModal';
 import { OddDocModal } from './components/modals/OddDocModal';
 import { CommentaryModal } from './components/modals/CommentaryModal';
 import { CitationModal } from './components/modals/CitationModal';
 import { FileTreeModal } from './components/modals/FileTreeModal';
 import { ImageLightboxModal } from './components/modals/ImageLightboxModal';
-import { MethodologyModal } from './components/modals/MethodologyModal';
-import { ContactModal } from './components/modals/ContactModal';
 import { LegalModal } from './components/modals/LegalModal';
 import { GalleryPlate } from './types';
 
@@ -69,6 +64,7 @@ export default function App() {
       number: '183',
       category: 'Fac-similé',
       title: 'Fac-similé Haute Résolution — Registre Bel-Air',
+      subtitle: '',
       filename: 'ms-belair-f183r-600dpi.tif',
       tag: 'Cote : CH-AEG-Bel-Air-1907-1916',
       description: caption,
@@ -107,24 +103,12 @@ export default function App() {
         {/* Section 1: Research Thesis & Methodology */}
         <ResearchThesisSection
           onOpenLightbox={(plate) => setLightboxPlate(plate)}
-          onOpenMethodologyModal={(idx) => setMethodologyPhase(idx)}
         />
 
         {/* Section 2: TEI Edition (Bel-Air 1907-1916) */}
         <TeiEditionSection
           onOpenTeiReaderModal={() => setIsTeiReaderOpen(true)}
           onOpenFullscreenFacsimile={handleOpenFullscreenFacsimile}
-        />
-
-        {/* Section 2.5: Project Resources, ODD & Repositories */}
-        <ProjectResourcesSection
-          onOpenTeiReader={() => setIsTeiReaderOpen(true)}
-          onOpenOddDoc={() => setIsOddDocOpen(true)}
-          onOpenCommentary={() => setIsCommentaryOpen(true)}
-          onOpenCitation={() => setIsCitationOpen(true)}
-          onOpenTreeModal={() => setIsFileTreeOpen(true)}
-          onOpenDownloadZip={handleDownloadZip}
-          onOpenTranscription12p={() => setIsCommentaryOpen(true)}
         />
 
         {/* Section 3: Technical Skills & Digital Humanities Toolbox */}
@@ -138,13 +122,6 @@ export default function App() {
       />
 
       {/* Modals */}
-      <CvModal isOpen={isCvOpen} onClose={() => setIsCvOpen(false)} />
-
-      <TeiReaderModal
-        isOpen={isTeiReaderOpen}
-        onClose={() => setIsTeiReaderOpen(false)}
-      />
-
       <OddDocModal
         isOpen={isOddDocOpen}
         onClose={() => setIsOddDocOpen(false)}
@@ -165,20 +142,9 @@ export default function App() {
         onClose={() => setIsFileTreeOpen(false)}
       />
 
-      <ContactModal
-        isOpen={isContactOpen}
-        onClose={() => setIsContactOpen(false)}
-      />
-
       <ImageLightboxModal
         plate={lightboxPlate}
         onClose={() => setLightboxPlate(null)}
-      />
-
-      <MethodologyModal
-        isOpen={methodologyPhase !== null}
-        initialPhaseIndex={methodologyPhase ?? 0}
-        onClose={() => setMethodologyPhase(null)}
       />
 
       <LegalModal

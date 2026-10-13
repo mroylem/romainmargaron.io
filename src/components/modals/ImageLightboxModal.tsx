@@ -32,7 +32,7 @@ export const ImageLightboxModal: React.FC<ImageLightboxModalProps> = ({ plate, o
               <h4 className="font-serif text-lg sm:text-xl font-bold text-[#5b070e]">
                 {plate.title}
               </h4>
-              <p className="text-xs text-[#64748B] font-mono">{plate.filename} • {plate.meta}</p>
+              <p className="text-xs font-mono">{plate.subtitle}</p>
             </div>
           </div>
 
@@ -67,36 +67,35 @@ export const ImageLightboxModal: React.FC<ImageLightboxModalProps> = ({ plate, o
           </div>
         </div>
 
-        {/* Image Display Area with Pan/Zoom container */}
-        <div className="flex-1 overflow-auto bg-[#1E232A] p-4 flex items-center justify-center min-h-[360px] sm:min-h-[460px]">
-          <div
-            className="transition-transform duration-200 flex items-center justify-center"
-            style={{ transform: `scale(${zoom})` }}
-          >
-            <img
-              src={plate.imageUrl}
-              alt={plate.title}
-              className="max-h-[65vh] max-w-full object-contain rounded shadow-lg border border-[#334155]"
-            />
+        <div className="flex flex-row">
+          {/* Image Display Area with Pan/Zoom container */}
+          <div className="flex-3/4 overflow-auto bg-[#1E232A] p-4 flex items-center justify-center min-h-[120px] sm:min-h-[260px]">
+            <div
+              className="transition-transform duration-200 flex items-center justify-center"
+              style={{ transform: `scale(${zoom})` }}
+            >
+              <img
+                src={plate.imageUrl}
+                alt={plate.title}
+                className="max-h-[65vh] max-w-full object-contain rounded shadow-lg border border-[#334155]"
+              />
+            </div>
           </div>
-        </div>
 
-        {/* Footer info */}
-        <div className="p-4 bg-[#F4EFEB] border-t border-[#E2DACD] flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3">
-          <div className="text-xs text-[#334155] leading-relaxed max-w-3xl">
-            <strong>Description paléographique :</strong> {plate.description}{' '}
-            {plate.zoomDetails && (
-              <span className="text-[#4A2E12] italic block sm:inline mt-1 sm:mt-0 sm:ml-1">
-                ({plate.zoomDetails})
-              </span>
-            )}
+          {/* Right info */}
+          <div className="p-4 bg-[#F4EFEB] border-t border-[#E2DACD] flex flex-col justify-between items-start sm:items-center gap-3">
+            <div className="text-xs text-[#334155] leading-relaxed max-w-3xl">
+              <p>{plate.description}</p>
+              {plate.zoomDetails && <p>{plate.zoomDetails}</p>}
+              <p className="text-xs text-[#64748B] font-mono">{plate.meta}</p>
+            </div>
+            <button
+              onClick={onClose}
+              className="px-4 py-1.5 rounded bg-[#7A2021] text-white text-xs font-semibold uppercase cursor-pointer hover:bg-[#5b070e] self-end sm:self-auto shrink-0"
+            >
+              Fermer
+            </button>
           </div>
-          <button
-            onClick={onClose}
-            className="px-4 py-1.5 rounded bg-[#7A2021] text-white text-xs font-semibold uppercase cursor-pointer hover:bg-[#5b070e] self-end sm:self-auto shrink-0"
-          >
-            Fermer
-          </button>
         </div>
       </div>
     </div>
