@@ -14,24 +14,39 @@ export const ResearchThesisSection: React.FC<ResearchThesisSectionProps> = ({
   return (
     <section
       id="memoire-de-recherche"
-      className="w-full max-w-7xl mx-auto px-6 lg:px-12 py-14 lg:py-20 flex flex-col gap-12"
+      className="w-full max-w-[1376px] mx-auto px-6 lg:px-12 py-14 lg:py-20 flex flex-col gap-12"
     >
       {/* Header */}
       <div className="flex flex-col gap-2">
-        <div className="flex items-center gap-3">
-          <span className="text-[11px] px-2 py-0.5 rounded bg-[#C29B38]/20 text-[#4A2E12] font-semibold uppercase tracking-wider">
-            Mémoire de Master
-          </span>
-          <div className="h-px bg-[#E2DACD] flex-1"></div>
+        <div className="flex flex-col gap-2">
+          <div className="flex items-center gap-3">
+            <span className="text-[11px] px-2 py-0.5 rounded bg-[#C29B38]/20 text-[#4A2E12] font-semibold uppercase tracking-wider">
+              Mémoire de Master
+            </span>
+            <div className="h-px bg-[#E2DACD] flex-1"></div>
+          </div>
+          <h2 className="font-serif text-3xl sm:text-4xl lg:text-[42px] text-[#5b070e] font-medium tracking-tight leading-tight">
+            Valoriser les archives photographiques par la datavisualisation : potentiel d’un outil de médiation dans trois institutions patrimoniales neuchâteloises.
+          </h2>
+          <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6">
+          <p className="text-[17px] text-[#64748B] leading-relaxed max-w-4xl">
+            Ce projet de recherche étudie le potentiel de la datavisualisation appliquée à la gestion, la valorisation et la médiation des archives photographiques.
+            Nous nous sommes interrogés sur la manière dont ces outils de visualisation de données peuvent devenir des instruments d’aide à la décision ou de médiation pour les archivistes.
+            <br />Afin de répondre à cette question, un corpus de plus de 240 000 archives photographiques a été réuni et traité à l’aide du langage R.
+          </p>
+          <div className="shrink-0">
+            <a
+              href="https://github.com/mroylem/valorisation_fonds_photos_via_datavisualisation"
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center gap-2 bg-[#7A2021] hover:bg-[#5b070e] text-white text-[13px] font-semibold uppercase tracking-wider py-3 px-5 rounded shadow transition-all"
+            >
+              <span className="material-symbols-outlined text-[18px]">open_in_new</span>
+              <span>Dépôt GitHub du Mémoire</span>
+            </a>
+          </div>
+          </div>
         </div>
-        <h2 className="font-serif text-3xl sm:text-4xl lg:text-[42px] text-[#5b070e] font-medium tracking-tight leading-tight">
-          Valoriser les archives photographiques par la datavisualisation : potentiel d’un outil de médiation dans trois institutions patrimoniales neuchâteloises.
-        </h2>
-        <p className="text-[17px] text-[#64748B] leading-relaxed">
-          Ce projet de recherche étudie le potentiel de la datavisualisation appliquée à la gestion, la valorisation et la médiation des archives photographiques.
-          Nous nous sommes interrogés sur la manière dont ces outils de visualisation de données peuvent devenir des instruments d’aide à la décision ou de médiation pour les archivistes.
-          <br />Afin de répondre à cette question, un corpus de plus de 240 000 archives photographiques a été réuni et traité à l’aide du langage R.
-        </p>
       </div>
 
       {/* Main Grid: Workstation Image & Scientific Stakes */}
@@ -130,7 +145,7 @@ export const ResearchThesisSection: React.FC<ResearchThesisSectionProps> = ({
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
           {/* Phase 01 */}
           <div
-            className="flex flex-col bg-[#F4EFEB] p-6 rounded border border-[#E2DACD] shadow-xs relative overflow-hidden group hover:border-[#C29B38] transition-all cursor-pointer hover:-translate-y-0.5"
+            className="flex flex-col bg-[#F4EFEB] p-6 rounded border border-[#E2DACD] shadow-xs relative overflow-hidden group hover:border-[#C29B38] transition-all hover:-translate-y-0.5"
           >
             <div className="flex items-center justify-between pb-3 border-b border-[#E2DACD]">
               <span className="font-mono text-sm font-bold text-[#7A2021]">PHASE 01</span>
@@ -148,7 +163,7 @@ export const ResearchThesisSection: React.FC<ResearchThesisSectionProps> = ({
 
           {/* Phase 02 */}
           <div
-            className="flex flex-col bg-[#F4EFEB] p-6 rounded border border-[#E2DACD] shadow-xs relative overflow-hidden group hover:border-[#C29B38] transition-all cursor-pointer hover:-translate-y-0.5"
+            className="flex flex-col bg-[#F4EFEB] p-6 rounded border border-[#E2DACD] shadow-xs relative overflow-hidden group hover:border-[#C29B38] transition-all hover:-translate-y-0.5"
           >
             <div className="flex items-center justify-between pb-3 border-b border-[#E2DACD]">
               <span className="font-mono text-sm font-bold text-[#7A2021]">PHASE 02</span>
@@ -166,7 +181,7 @@ export const ResearchThesisSection: React.FC<ResearchThesisSectionProps> = ({
 
           {/* Phase 03 */}
           <div
-            className="flex flex-col bg-[#F4EFEB] p-6 rounded border border-[#E2DACD] shadow-xs relative overflow-hidden group hover:border-[#C29B38] transition-all cursor-pointer hover:-translate-y-0.5"
+            className="flex flex-col bg-[#F4EFEB] p-6 rounded border border-[#E2DACD] shadow-xs relative overflow-hidden group hover:border-[#C29B38] transition-all hover:-translate-y-0.5"
           >
             <div className="flex items-center justify-between pb-3 border-b border-[#E2DACD]">
               <span className="font-mono text-sm font-bold text-[#7A2021]">PHASE 03</span>
@@ -186,7 +201,7 @@ export const ResearchThesisSection: React.FC<ResearchThesisSectionProps> = ({
 
           {/* Phase 04 */}
           <div
-            className="flex flex-col bg-[#F4EFEB] p-6 rounded border border-[#E2DACD] shadow-xs relative overflow-hidden group hover:border-[#C29B38] transition-all cursor-pointer hover:-translate-y-0.5"
+            className="flex flex-col bg-[#F4EFEB] p-6 rounded border border-[#E2DACD] shadow-xs relative overflow-hidden group hover:border-[#C29B38] transition-all hover:-translate-y-0.5"
           >
             <div className="flex items-center justify-between pb-3 border-b border-[#E2DACD]">
               <span className="font-mono text-sm font-bold text-[#7A2021]">PHASE 04</span>

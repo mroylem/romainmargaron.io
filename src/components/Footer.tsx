@@ -13,22 +13,38 @@ export const Footer: React.FC<FooterProps> = ({ }) => {
           <span className="text-[13px] font-semibold text-[#171c23] uppercase tracking-wider">
             Contact
           </span>
-          <div className="flex flex-row gap-2 text-[14px] text-[#334155]">
+          <div className="flex flex-row flex-wrap gap-x-6 gap-y-2 text-[14px] text-[#334155]">
             <a
-              href="mailto:[EMAIL_ADDRESS]"
+              href="mailto:romain.margaron@gmail.com"
               className="inline-flex items-center gap-2 hover:text-[#5b070e] transition-colors"
             >
               <span className="material-symbols-outlined text-[18px] text-[#7A2021]">mail</span>
               <span>romain.margaron@gmail.com</span>
             </a>
             <a
+              href="tel:+41781234567"
+              className="inline-flex items-center gap-2 hover:text-[#5b070e] transition-colors"
+            >
+              <span className="material-symbols-outlined text-[18px] text-[#7A2021]">call</span>
+              <span>+41 78 123 45 67</span>
+            </a>
+            <a
               href="https://github.com/mroylem"
               target="_blank"
               rel="noreferrer"
-              className="inline-flex ml-6 items-center gap-2 hover:text-[#5b070e] transition-colors"
+              className="inline-flex items-center gap-2 hover:text-[#5b070e] transition-colors"
             >
               <span className="material-symbols-outlined text-[18px] text-[#7A2021]">code</span>
               <span>GitHub / mroylem</span>
+            </a>
+            <a
+              href="https://www.linkedin.com/in/romain-margaron-1412b6140/"
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center gap-2 hover:text-[#5b070e] transition-colors"
+            >
+              <span className="material-symbols-outlined text-[18px] text-[#7A2021]">badge</span>
+              <span>LinkedIn</span>
             </a>
           </div>
         </div>

@@ -10,6 +10,7 @@ export interface GalleryPlate {
   meta: string;
   imageUrl: string;
   zoomDetails?: string;
+  sideImageUrl?: string;
 }
 
 export interface TeiFolio {

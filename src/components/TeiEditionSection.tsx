@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { TEI_FOLIOS } from '../data/portfolioData';
 
 interface TeiEditionSectionProps {
-  onOpenFullscreenFacsimile: (imgUrl: string, caption: string) => void;
+  onOpenFullscreenFacsimile: (imgUrl: string, caption: string, sideImageUrl?: string) => void;
 }
 
 export const TeiEditionSection: React.FC<TeiEditionSectionProps> = ({
@@ -10,15 +10,13 @@ export const TeiEditionSection: React.FC<TeiEditionSectionProps> = ({
 }) => {
   const [activeFolioKey, setActiveFolioKey] = useState<string>('183');
   const [viewMode, setViewMode] = useState<'diplomatic' | 'normalized' | 'source'>('diplomatic');
-  const [zoomLevel, setZoomLevel] = useState<number>(1);
   const [copiedCode, setCopiedCode] = useState<boolean>(false);
   const [highlightedEntry, setHighlightedEntry] = useState<string | null>(null);
 
   const activeFolio = TEI_FOLIOS[activeFolioKey] || TEI_FOLIOS['183'];
 
-  const handleZoomIn = () => setZoomLevel((prev) => Math.min(prev + 0.25, 2.5));
-  const handleZoomOut = () => setZoomLevel((prev) => Math.max(prev - 0.25, 0.75));
-  const handleZoomReset = () => setZoomLevel(1);
+  const openFullscreen = () =>
+    onOpenFullscreenFacsimile(activeFolio.imageUrl, activeFolio.caption, activeFolio.secondImageUrl);
 
   return (
     <section
@@ -28,7 +26,7 @@ export const TeiEditionSection: React.FC<TeiEditionSectionProps> = ({
       <div className="max-w-7xl mx-auto flex flex-col gap-10">
         {/* Section Header */}
         <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6">
-          <div className="flex flex-col gap-2.5 max-w-3xl">
+          <div className="flex flex-col gap-2.5 max-w-4xl">
             <div className="flex items-center gap-3">
               <span className="text-[11px] px-2 py-0.5 rounded bg-[#C29B38]/20 text-[#4A2E12] font-semibold uppercase tracking-wider">
                 Séminaire Bibliothèque numérique I et II - 2025-2026
@@ -43,12 +41,12 @@ export const TeiEditionSection: React.FC<TeiEditionSectionProps> = ({
             </p>
           </div>
 
-          <div>
+          <div className="flex flex-wrap gap-3">
             <a
               href="https://mroylem.github.io/edition_tei_Bel-Air.io/"
               target="_blank"
               rel="noreferrer"
-              className="inline-flex items-center gap-2 bg-[#7A2021] hover:bg-[#5b070e] text-white text-[13px] font-semibold uppercase tracking-wider py-3 px-5 mr-3 rounded shadow transition-all self-start lg:self-auto shrink-0"
+              className="inline-flex items-center gap-2 bg-[#7A2021] hover:bg-[#5b070e] text-white text-[13px] font-semibold uppercase tracking-wider py-3 px-5 rounded shadow transition-all self-start lg:self-auto shrink-0"
             >
               <span className="material-symbols-outlined text-[18px]">open_in_new</span>
               <span>Site du Projet</span>
@@ -76,43 +74,14 @@ export const TeiEditionSection: React.FC<TeiEditionSectionProps> = ({
                   <span className="material-symbols-outlined text-[16px]">image</span>
                   Fac-similé original — Registre des délibérations ({activeFolio.label})
                 </span>
-                <div className="flex items-center gap-1">
-                  <button
-                    onClick={handleZoomIn}
-                    title="Zoomer (+)"
-                    className="w-7 h-7 rounded border border-[#E2DACD] bg-[#FAF8F5] flex items-center justify-center hover:bg-[#F4EFEB] text-[#1E232A] cursor-pointer"
-                  >
-                    <span className="material-symbols-outlined text-[16px]">zoom_in</span>
-                  </button>
-                  <button
-                    onClick={handleZoomOut}
-                    title="Dézoomer (-)"
-                    className="w-7 h-7 rounded border border-[#E2DACD] bg-[#FAF8F5] flex items-center justify-center hover:bg-[#F4EFEB] text-[#1E232A] cursor-pointer"
-                  >
-                    <span className="material-symbols-outlined text-[16px]">zoom_out</span>
-                  </button>
-                  <button
-                    onClick={handleZoomReset}
-                    title="Réinitialiser le zoom"
-                    className="w-7 h-7 rounded border border-[#E2DACD] bg-[#FAF8F5] flex items-center justify-center hover:bg-[#F4EFEB] text-[#1E232A] cursor-pointer text-xs font-mono"
-                  >
-                    1:1
-                  </button>
-                  <button
-                    onClick={() => onOpenFullscreenFacsimile(activeFolio.imageUrl, activeFolio.caption)}
-                    title="Plein écran"
-                    className="w-7 h-7 rounded border border-[#E2DACD] bg-[#FAF8F5] flex items-center justify-center hover:bg-[#F4EFEB] text-[#1E232A] cursor-pointer"
-                  >
-                    <span className="material-symbols-outlined text-[16px]">fullscreen</span>
-                  </button>
-                </div>
               </div>
 
               {/* Interactive Image Viewport */}
               <div className="relative w-full h-[520px] rounded border border-[#E2DACD] overflow-hidden bg-[#FAF8F5] shadow-inner flex items-center justify-center">
                 <div
-                  className="w-full h-full relative transition-transform duration-200 flex items-center justify-center"
-                  style={{ transform: `scale(${zoomLevel})` }}
+                  className="w-full h-full relative flex items-center justify-center cursor-zoom-in"
+                  onClick={openFullscreen}
+                  title="Agrandir"
                 >
                   <img
                     src={activeFolio.imageUrl}
@@ -135,7 +104,9 @@ export const TeiEditionSection: React.FC<TeiEditionSectionProps> = ({
             {/* Right Pane: TEI Transcription and Tagging */}
             <div className="flex flex-col bg-[#FAF8F5] p-4 lg:p-6 gap-3">
               <div
-                className="w-full h-full relative"
+                className="w-full h-full relative cursor-zoom-in"
+                onClick={openFullscreen}
+                title="Agrandir"
               >
                 <img
                   src={activeFolio.secondImageUrl}

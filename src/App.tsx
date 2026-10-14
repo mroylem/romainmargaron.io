@@ -49,7 +49,7 @@ export default function App() {
     }, 800);
   };
 
-  const handleOpenFullscreenFacsimile = (imgUrl: string, caption: string) => {
+  const handleOpenFullscreenFacsimile = (imgUrl: string, caption: string, sideImageUrl?: string) => {
     setLightboxPlate({
       id: 'facsimile-fullscreen',
       number: '183',
@@ -60,7 +60,8 @@ export default function App() {
       tag: 'Cote : CH-AEG-Bel-Air-1907-1916',
       description: caption,
       meta: 'Résolution : 600 DPI • Non compressé',
-      imageUrl: imgUrl
+      imageUrl: imgUrl,
+      sideImageUrl
     });
   };
 
