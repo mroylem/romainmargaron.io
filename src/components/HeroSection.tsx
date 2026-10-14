@@ -42,8 +42,8 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ }) => {
           {/* Abstract */}
           <p className="text-[17px] sm:text-[18px] text-[#334155] text-justify leading-relaxed">
             Après un Bachelor en histoire et plusieurs années d’expérience professionnelle dans la médiation culturelle et la gestion administrative,
-            j’ai souhaité revenir dans le secteur du patrimoine en intégrant le <span className="font-semibold text-[#5b070e]">Master en Patrimoine régional et Humanités numériques</span> de l'Université de Neuchâtel.
-            Cette formation m'a permis de développer une double compétence, en combinant les méthodes historiques et archivistiques avec les outils numériques.
+            j’ai souhaité approfondir mes compétences en intégrant le <span className="font-semibold text-[#5b070e]">Master en Patrimoine régional et Humanités numériques</span> de l'Université de Neuchâtel.
+            Cette formation m'a permis de développer une double qualification, en combinant les méthodes historiques et archivistiques avec les outils numériques.
             Elle couvre aussi bien l'inventaire et la gestion de fonds que le traitement et la valorisation de données sous <span className="font-semibold text-[#5b070e]">R</span>, la <span className="font-semibold text-[#5b070e]">transcription automatique (HTR)
             </span> ou l'édition en <span className="font-semibold text-[#5b070e]">XML-TEI</span>.
             <br />Je vous présente ci-dessous deux projets réalisés durant mes études : mon mémoire de Master et un projet de transcription et d'édition numérique.
