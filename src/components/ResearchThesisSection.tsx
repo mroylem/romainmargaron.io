@@ -28,7 +28,9 @@ export const ResearchThesisSection: React.FC<ResearchThesisSectionProps> = ({
           Valoriser les archives photographiques par la datavisualisation : potentiel d’un outil de médiation dans trois institutions patrimoniales neuchâteloises.
         </h2>
         <p className="text-[17px] text-[#64748B] leading-relaxed">
-          Ce projet de recherche étudie le potentiel de la datavisualisation appliquée à la gestion, la valorisation et la médiation des archives photographiques. Un corpus de plus de 240 000 objets a été constitué et traité à l’aide du langage libre R.
+          Ce projet de recherche étudie le potentiel de la datavisualisation appliquée à la gestion, la valorisation et la médiation des archives photographiques.
+          Nous nous sommes interrogés sur la manière dont ces outils de visualisation de données peuvent devenir des instruments d’aide à la décision ou de médiation pour les archivistes.
+          <br />Afin de répondre à cette question, un corpus de plus de 240 000 archives photographiques a été réuni et traité à l’aide du langage R.
         </p>
       </div>
 
@@ -88,7 +90,9 @@ export const ResearchThesisSection: React.FC<ResearchThesisSectionProps> = ({
             </h3>
             <p className="text-[16px] text-[#334155] text-justify leading-relaxed">
               Ce projet a été réalisé à partir d’inventaires et de données moissonnées en ligne, au sein de trois institutions patrimoniales neuchâteloises. C’est ainsi qu’une quinzaine de visualisations de données, telles que des cartographies, des diagrammes de dispersion ou de cercles imbriqués, ont été générées afin d'être confrontées aux réalités du terrain.
-              <br />Les résultats de l’étude indiquent que, bien qu’elle ne puisse remplacer les instruments de recherche traditionnels, la datavisualisation constitue un outil de médiation et de communication particulièrement efficace. En outre, la dataviz offre aux professionnels comme aux différents publics des vues d'ensemble inédites pour appréhender la complexité des fonds photographiques.
+            </p>
+            <p className="text-[16px] text-[#334155] text-justify leading-relaxed">
+              Les résultats de l’étude indiquent que, bien qu’elle ne puisse remplacer les instruments de recherche traditionnels, la datavisualisation constitue un outil de médiation et de communication particulièrement efficace. En outre, elle offre aux professionnels comme aux différents publics des vues d'ensemble inédites pour appréhender la complexité des fonds photographiques.
             </p>
           </div>
           <div className="p-3 bg-[#FAF8F5] rounded border border-[#E2DACD] flex items-center justify-between">
@@ -102,14 +106,23 @@ export const ResearchThesisSection: React.FC<ResearchThesisSectionProps> = ({
         </div>
       </div>
 
-
       {/* 4-Step Methodology Protocol */}
       <div id="methodologie" className="flex flex-col gap-6 pt-4 scroll-mt-24">
         <div className="flex flex-col gap-1">
           <h3 className="font-serif text-3xl sm:text-4xl text-[#5b070e] font-semibold">
             Méthodologie
           </h3>
-          <p className="text-[16px] text-[#64748B] max-w-3xl">
+          <h4 className="font-serif text-xl text-[#1E232A] font-semibold mt-3">
+            Datavisualisation
+          </h4>
+          <p className="text-[16px] text-[#64748B] text-justify">
+            La visualisation de données, également connue sous les noms de dataviz ou encore datavisualisation, regroupe un ensemble de méthodes de représentations graphiques plus ou moins complexes.
+            Dans le contexte du développement massif des données et des moyens informatiques, elle permet de rendre compte de façon synthétique d’un ensemble de données, mais aussi d’accompagner l’utilisateur dans sa lecture afin qu’il s’approprie plus facilement les informations qu'il y trouve.
+          </p>
+          <h4 className="font-serif text-xl text-[#1E232A] font-semibold mt-3">
+            Création
+          </h4>
+          <p className="text-[16px] text-[#64748B]">
             Les 4 étapes pour la création d'une datavisualisation.
           </p>
         </div>
