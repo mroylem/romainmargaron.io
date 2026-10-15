@@ -45,7 +45,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ }) => {
               Romain Margaron
             </h1>
             <p className="font-serif text-xl sm:text-2xl text-[#4A2E12] mt-1 font-normal italic">
-              Archiviste · Humanités numériques
+              Archives et Humanités numériques - Master de l'Université de Neuchâtel
             </p>
           </div>
 
